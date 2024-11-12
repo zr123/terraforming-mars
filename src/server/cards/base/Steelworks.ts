@@ -12,19 +12,18 @@ export class Steelworks extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.STEELWORKS,
       tags: [Tag.BUILDING],
-      cost: 15,
+      cost: 2,
 
       action: {
-        spend: {energy: 4},
-        stock: {steel: 2},
-        global: {oxygen: 1},
+        spend: {energy: 3},
+        stock: {steel: 5},
       },
 
       metadata: {
         cardNumber: '103',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend 4 energy to gain 2 steel and increase oxygen 1 step.', (eb) => {
-            eb.energy(4, {digit}).startAction.steel(2).oxygen(1);
+          b.action('Spend 3 energy to gain 5 steel.', (eb) => {
+            eb.energy(3, {digit}).startAction.steel(5);
           });
         }),
       },

@@ -11,7 +11,7 @@ export class AdaptedLichen extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.ADAPTED_LICHEN,
       tags: [Tag.PLANT],
-      cost: 9,
+      cost: 8,
 
       behavior: {
         production: {plants: 1},

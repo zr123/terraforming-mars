@@ -13,17 +13,17 @@ export class CupolaCity extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.CUPOLA_CITY,
       tags: [Tag.CITY, Tag.BUILDING],
-      cost: 16,
+      cost: 14,
 
       behavior: {
         production: {energy: -1, megacredits: 3},
         city: {},
       },
 
-      requirements: {oxygen: 9, max},
+      requirements: {oxygen: 7, max},
       metadata: {
         cardNumber: '029',
-        description: 'Oxygen must be 9% or less. Place a city tile. Decrease your energy production 1 step and increase your M€ production 3 steps.',
+        description: 'Oxygen must be 7% or less. Place a city tile. Decrease your energy production 1 step and increase your M€ production 3 steps.',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.minus().energy(1).br;

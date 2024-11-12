@@ -15,9 +15,6 @@ export class SolarLogistics extends Card implements IProjectCard {
       cost: 20,
       tags: [Tag.EARTH, Tag.SPACE],
 
-      behavior: {
-        stock: {titanium: 2},
-      },
       victoryPoints: 1,
       cardDiscount: {tag: Tag.EARTH, amount: 2},
 
@@ -29,10 +26,7 @@ export class SolarLogistics extends Card implements IProjectCard {
           b.br;
           b.effect('When any player plays a space event, draw a card.',
             (eb) => eb.tag(Tag.SPACE, {all}).tag(Tag.EVENT, {all}).startEffect.cards(1));
-          b.br;
-          b.titanium(2);
         }),
-        description: 'Gain 2 titanium.',
       },
     });
   }

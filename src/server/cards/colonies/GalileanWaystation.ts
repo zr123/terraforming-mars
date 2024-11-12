@@ -9,8 +9,8 @@ import {all} from '../Options';
 export class GalileanWaystation extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 15,
-      tags: [Tag.SPACE],
+      cost: 10,
+      tags: [Tag.SPACE, Tag.JOVIAN],
       name: CardName.GALILEAN_WAYSTATION,
       type: CardType.AUTOMATED,
       victoryPoints: 1,
@@ -20,10 +20,10 @@ export class GalileanWaystation extends Card implements IProjectCard {
       },
 
       metadata: {
-        description: 'Increase your M€ production 1 step for every Jovian tag in play.',
+        description: 'Increase your M€ production 1 step for every Jovian tag YOU have.',
         cardNumber: 'C13',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.megacredits(1).slash().tag(Tag.JOVIAN, {all}));
+          b.production((pb) => pb.megacredits(1).slash().tag(Tag.JOVIAN));
         }),
       },
     });

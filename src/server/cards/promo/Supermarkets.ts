@@ -10,7 +10,7 @@ export class Supermarkets extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.SUPERMARKETS,
-      cost: 9,
+      cost: 11,
       victoryPoints: 1,
 
       behavior: {

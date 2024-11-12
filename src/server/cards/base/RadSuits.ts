@@ -10,7 +10,7 @@ export class RadSuits extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.RAD_SUITS,
-      cost: 6,
+      cost: 8,
       victoryPoints: 1,
 
       behavior: {

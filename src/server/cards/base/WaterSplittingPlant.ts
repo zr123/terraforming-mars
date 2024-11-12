@@ -12,7 +12,7 @@ export class WaterSplittingPlant extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.WATER_SPLITTING_PLANT,
       tags: [Tag.BUILDING],
-      cost: 12,
+      cost: 8,
 
       action: {
         spend: {energy: 3},

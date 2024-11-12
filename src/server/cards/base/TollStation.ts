@@ -12,7 +12,7 @@ export class TollStation extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.TOLL_STATION,
       tags: [Tag.SPACE],
-      cost: 12,
+      cost: 30,
 
       behavior: {
         production: {megacredits: {tag: Tag.SPACE, others: true}},

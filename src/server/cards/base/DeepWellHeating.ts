@@ -11,7 +11,7 @@ export class DeepWellHeating extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.DEEP_WELL_HEATING,
       tags: [Tag.POWER, Tag.BUILDING],
-      cost: 13,
+      cost: 11,
 
       behavior: {
         production: {energy: 1},

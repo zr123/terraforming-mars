@@ -9,7 +9,7 @@ export class BlackPolarDust extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.BLACK_POLAR_DUST,
-      cost: 15,
+      cost: 14,
 
       behavior: {
         ocean: {},
