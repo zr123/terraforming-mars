@@ -4,7 +4,6 @@ import {CardType} from '../../../common/cards/CardType';
 import {CardName} from '../../../common/cards/CardName';
 import {Card} from '../Card';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 
 export class GalileanWaystation extends Card implements IProjectCard {
   constructor() {
@@ -16,7 +15,7 @@ export class GalileanWaystation extends Card implements IProjectCard {
       victoryPoints: 1,
 
       behavior: {
-        production: {megacredits: {tag: Tag.JOVIAN, all: true}},
+        production: {megacredits: {tag: Tag.JOVIAN}},
       },
 
       metadata: {
