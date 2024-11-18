@@ -1,16 +1,17 @@
 import {IActionCard} from '../ICard';
+import {IProjectCard} from '../IProjectCard';
 import {Tag} from '../../../common/cards/Tag';
 import {CardType} from '../../../common/cards/CardType';
 import {IPlayer} from '../../IPlayer';
 import {CardResource} from '../../../common/CardResource';
 import {OrOptions} from '../../inputs/OrOptions';
-import {SelectOption} from '../../inputs/SelectOption';
+import {SelectCard} from '../../inputs/SelectCard';
 import {SelectAmount} from '../../inputs/SelectAmount';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 
-export class SulphurEatingBacteria extends Card implements IActionCard {
+export class SulphurEatingBacteria extends Card implements IActionCard, IProjectCard {
   constructor() {
     super({
       name: CardName.SULPHUR_EATING_BACTERIA,
@@ -41,10 +42,14 @@ export class SulphurEatingBacteria extends Card implements IActionCard {
   public action(player: IPlayer) {
     const opts = [];
 
-    const addResource = new SelectOption('Add 1 microbe to any card', 'Add microbe').andThen(() => {
-      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
-      return undefined;
+    const availableCards = player.getResourceCards(CardResource.MICROBE);
+
+    const addResource = new SelectCard('Select card to add microbe', 'Add resource', availableCards)
+      .andThen(([card]) => {
+        player.addResourceTo(card, {log: true});
+        return undefined;
     });
+
     const spendResource = new SelectAmount('Remove any number of microbes to gain 3 M€ per microbe removed', 'Remove microbes', 1, this.resourceCount, true)
       .andThen((amount) => this.spendResource(player, amount));
 

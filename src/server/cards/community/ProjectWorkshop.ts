@@ -50,7 +50,7 @@ export class ProjectWorkshop extends CorporationCard {
             cb.action('Flip and discard a played blue card to convert any VP on it into TR and draw 2 cards, or spend 1 M€ to draw a blue card.', (eb) => {
               eb.or().megacredits(1).startAction.cards(1, {secondaryTag: AltSecondaryTag.BLUE});
             });
-(ab) => ab.empty().startAction.resource(CardResource.MICROBE).asterix()));          });
+	  });
         }),
       },
     });

@@ -12,6 +12,7 @@ import {SelectPaymentDeferred} from '../../deferredActions/SelectPaymentDeferred
 import {OrOptions} from '../../inputs/OrOptions';
 import {SelectOption} from '../../inputs/SelectOption';
 import {SelectPayment} from '../../inputs/SelectPayment';
+import {Tag} from '../../../common/cards/Tag';
 import {TITLES} from '../../inputs/titles';
 import {message} from '../../logs/MessageBuilder';
 

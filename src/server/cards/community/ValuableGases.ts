@@ -8,6 +8,8 @@ import {SelectProjectCardToPlay} from '../../inputs/SelectProjectCardToPlay';
 import {CardRenderer} from '../render/CardRenderer';
 import {Size} from '../../../common/cards/render/Size';
 import {digit} from '../Options';
+import {AltSecondaryTag} from '../../../common/cards/render/AltSecondaryTag';
+import {CardType} from '../../../common/cards/CardType';
 
 export class ValuableGases extends PreludeCard implements IProjectCard {
   constructor() {

@@ -8,7 +8,6 @@ import {Resource} from '../../../common/Resource';
 import {Tag} from '../../../common/cards/Tag';
 import {RemoveResourcesFromCard} from '../../deferredActions/RemoveResourcesFromCard';
 import {CardResource} from '../../../common/CardResource';
-import {all, digit} from '../Options';
 
 export class SolarStorm extends Card implements IProjectCard {
   constructor() {

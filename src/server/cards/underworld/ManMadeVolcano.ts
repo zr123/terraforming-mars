@@ -10,6 +10,7 @@ import {PlayerInput} from '../../PlayerInput';
 import {PlaceTile} from '../../deferredActions/PlaceTile';
 import {message} from '../../logs/MessageBuilder';
 import {digit} from '../Options';
+import {SpaceBonus} from '../../../common/boards/SpaceBonus';
 
 export class ManMadeVolcano extends Card implements IProjectCard {
   constructor() {
@@ -55,7 +56,7 @@ export class ManMadeVolcano extends Card implements IProjectCard {
         tile: {tileType: TileType.MAN_MADE_VOLCANO, card: this.name},
         on: () => this.availableSpaces(player),
         title: message('Select space for ${0}', (b) => b.tileType(TileType.MAN_MADE_VOLCANO)),
-        adjacencyBonus: {bonus: [SpaceBonus.ENERGY, SpaceBonus.HEAT],
+        adjacencyBonus: {bonus: [SpaceBonus.ENERGY, SpaceBonus.HEAT]},
       }));
     return undefined;
   }
