@@ -15,7 +15,6 @@ export class SolarLogistics extends Card implements IProjectCard {
       cost: 20,
       tags: [Tag.EARTH, Tag.SPACE],
 
-      victoryPoints: 1,
       cardDiscount: {tag: Tag.EARTH, amount: 2},
 
       metadata: {

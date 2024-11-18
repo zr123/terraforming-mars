@@ -100,5 +100,5 @@ export const LANGUAGES: Record<typeof ALL_LANGUAGES[number], [string, string]> =
   ua: ['Українська', 'Ukrainian'],
 };
 
-export const APP_NAME = 'Terraforming Mars';
+export const APP_NAME = 'Terrorstalling Mars';
 export const DISCORD_INVITE = 'https://discord.gg/afeyggbN6Y';

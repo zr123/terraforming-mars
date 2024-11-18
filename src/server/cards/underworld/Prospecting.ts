@@ -9,14 +9,14 @@ export class Prospecting extends PreludeCard {
   constructor() {
     super({
       name: CardName.PROSPECTING,
-      startingMegacredits: -4,
+      startingMegacredits: 4,
       tags: [Tag.SPACE],
 
       metadata: {
         cardNumber: 'UP13',
-        description: 'Pay 4 M€. Put an additional colony tile of your choice into play. Then place a colony on it.',
+        description: 'Gain 4 M€. Put an additional colony tile of your choice into play. Then place a colony on it.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(-4).nbsp.colonyTile().colonies().asterix();
+          b.megacredits(4).nbsp.colonyTile().colonies().asterix();
         }),
       },
     });

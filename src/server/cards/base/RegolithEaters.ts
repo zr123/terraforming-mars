@@ -25,8 +25,8 @@ export class RegolithEaters extends ActionCard implements IProjectCard {
             // LogHelper.logRemoveResource(player, this, 2, 'raise oxygen 1 step');
           },
           {
-            title: 'Add 1 microbe to this card',
-            addResources: 1,
+            title: 'Add 1 microbe to any card',
+	    addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
           }],
         },
       },
@@ -34,8 +34,8 @@ export class RegolithEaters extends ActionCard implements IProjectCard {
       metadata: {
         cardNumber: '033',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.or().br;
           b.action('Remove 2 microbes from this card to raise oxygen level 1 step.', (eb) => {

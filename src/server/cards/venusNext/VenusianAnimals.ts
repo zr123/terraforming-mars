@@ -17,7 +17,7 @@ export class VenusianAnimals extends Card implements IProjectCard {
       resourceType: CardResource.ANIMAL,
       victoryPoints: {resourcesHere: {}},
 
-      requirements: {venus: 18},
+      requirements: {venus: 24},
       metadata: {
         cardNumber: '259',
         renderData: CardRenderer.builder((b) => {

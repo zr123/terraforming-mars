@@ -29,7 +29,7 @@ export class NitriteReducingBacteria extends ActionCard {
               // LogHelper.logRemoveResource(player, this, 3, 'gain 1 TR');
             },
             {
-              addResources: 1,
+	      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
               title: 'Add 1 microbe to this card',
             },
           ],
@@ -39,8 +39,8 @@ export class NitriteReducingBacteria extends ActionCard {
       metadata: {
         cardNumber: '157',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.or().br;
           b.action('Remove 3 microbes to increase your TR 1 step.', (eb) => {

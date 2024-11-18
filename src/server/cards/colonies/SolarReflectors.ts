@@ -9,7 +9,7 @@ import {digit} from '../Options';
 export class SolarReflectors extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 23,
+      cost: 19,
       tags: [Tag.SPACE],
       name: CardName.SOLAR_REFLECTORS,
       type: CardType.AUTOMATED,

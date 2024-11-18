@@ -17,15 +17,15 @@ export class Psychrophiles extends ActionCard implements IProjectCard {
       resourceType: CardResource.MICROBE,
 
       action: {
-        addResources: 1,
+        addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
       },
 
       requirements: {temperature: -20, max},
       metadata: {
         cardNumber: 'P39',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.effect('When paying for a plant card, microbes here may be used as 2 M€ each.', (eb) => {
             eb.tag(Tag.PLANT).startEffect.resource(CardResource.MICROBE).equals().megacredits(2);

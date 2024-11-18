@@ -25,7 +25,7 @@ export class Vitor extends CorporationCard {
           b.br.br;
           b.megacredits(45).nbsp.award();
           b.corpBox('effect', (ce) => {
-            ce.effect('When you play a card with a NON-NEGATIVE VP icon, including this, gain 3 M€.', (eb) => {
+            ce.effect('When you play a card with a NON-NEGATIVE VP icon, including this, gain 4 M€.', (eb) => {
               eb.vpIcon().asterix().startEffect.megacredits(3);
             });
           });
@@ -71,6 +71,6 @@ export class Vitor extends CorporationCard {
       if (victoryPoints.points <= 0) return;
     }
 
-    player.stock.add(Resource.MEGACREDITS, 3, {log: true, from: this});
+    player.stock.add(Resource.MEGACREDITS, 4, {log: true, from: this});
   }
 }

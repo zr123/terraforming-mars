@@ -14,10 +14,15 @@ export class CheungShingMARS extends CorporationCard {
         production: {megacredits: 3},
       },
 
+      firstAction: {
+        text: 'Draw 1 card with a building tag',
+        drawCard: {count: 1, tag: Tag.BUILDING},
+      },
+
       cardDiscount: {tag: Tag.BUILDING, amount: 2},
       metadata: {
         cardNumber: 'R16',
-        description: 'You start with 3 M€ production and 44 M€.',
+        description: 'You start with 3 M€ production and 44 M€. As your first action, draw 1 card with a building tag.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
           b.production((pb) => pb.megacredits(3)).nbsp.megacredits(44);

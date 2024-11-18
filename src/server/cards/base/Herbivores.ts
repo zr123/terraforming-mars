@@ -25,7 +25,6 @@ export class Herbivores extends Card implements IProjectCard {
       requirements: {oxygen: 8},
 
       behavior: {
-        decreaseAnyProduction: {type: Resource.PLANTS, count: 1},
         addResources: 1,
       },
 
@@ -36,11 +35,11 @@ export class Herbivores extends Card implements IProjectCard {
             eb.greenery({withO2: false}).startEffect.resource(CardResource.ANIMAL);
           }).br;
           b.vpText('1 VP per 2 animals on this card.');
-          b.resource(CardResource.ANIMAL).production((pb) => pb.minus().plants(1, {all}));
+          b.resource(CardResource.ANIMAL);
         }),
         description: {
         // TODO (chosta): revert the original description once a solution for description space is found
-          text: 'Requires 8% oxygen. +1 animal to this card. -1 any plant production',
+          text: 'Requires 8% oxygen. +1 animal to this card.',
           align: 'left',
         },
       },

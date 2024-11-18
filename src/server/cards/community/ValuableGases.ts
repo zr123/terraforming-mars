@@ -22,25 +22,31 @@ export class ValuableGases extends PreludeCard implements IProjectCard {
         cardNumber: 'Y06',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(6).br.br;
-          b.text('play', Size.MEDIUM, true).cards(1, {secondaryTag: Tag.VENUS}).colon();
-          b.resource(CardResource.FLOATER, {amount: 4, digit});
+	  b.text('play', Size.MEDIUM, true).cards(1, {secondaryTag: AltSecondaryTag.FLOATER}).asterix().br;
+          b.resource(CardResource.FLOATER, {amount: 6, digit});
         }),
-        description: 'Gain 6 M€. Play a Venus card from your hand and add 4 floaters to it.',
+        description: 'Gain 6 M€. Play a Floater card from your hand and add 6 floaters to it.',
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
-    const playableCards = player.getPlayableCards().filter((card) => card.card.tags.includes(Tag.VENUS));
-
-    if (playableCards.length > 0) {
-      return new SelectProjectCardToPlay(player, playableCards)
+    const playableCards = player.cardsInHand.filter((card) => {
+      return card.resourceType === CardResource.FLOATER &&
+        card.type === CardType.ACTIVE &&
+        player.canAfford(player.affordOptionsForCard(card));
+    }).map((card) => {
+      return {
+        card: card,
+        details: true,
+      };
+    });
+    if (playableCards.length !== 0) {
+      player.defer(new SelectProjectCardToPlay(player, playableCards)
         .andThen((card) => {
-          if (card.resourceType === CardResource.FLOATER) {
-            player.addResourceTo(card, 4);
-          }
+          player.addResourceTo(card, 6);
           return undefined;
-        });
+        }));
     }
 
     return undefined;

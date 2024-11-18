@@ -23,8 +23,8 @@ export class SulphurEatingBacteria extends Card implements IActionCard {
       metadata: {
         cardNumber: '251',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.or().br;
           b.action('Spend any number of microbes here to gain triple amount of M€.', (eb) => {
@@ -41,8 +41,8 @@ export class SulphurEatingBacteria extends Card implements IActionCard {
   public action(player: IPlayer) {
     const opts = [];
 
-    const addResource = new SelectOption('Add 1 microbe to this card', 'Add microbe').andThen(() => {
-      player.addResourceTo(this, {log: true});
+    const addResource = new SelectOption('Add 1 microbe to any card', 'Add microbe').andThen(() => {
+      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
       return undefined;
     });
     const spendResource = new SelectAmount('Remove any number of microbes to gain 3 M€ per microbe removed', 'Remove microbes', 1, this.resourceCount, true)

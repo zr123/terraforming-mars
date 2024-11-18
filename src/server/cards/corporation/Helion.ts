@@ -12,12 +12,12 @@ export class Helion extends CorporationCard {
       startingMegaCredits: 42,
 
       behavior: {
-        production: {heat: 3},
+        production: {heat: 5},
       },
 
       metadata: {
         cardNumber: 'R18',
-        description: 'You start with 3 heat production and 42 M€.',
+        description: 'You start with 5 heat production and 42 M€ and are a cool dude for playing Helion.',
         renderData: CardRenderer.builder((b) => {
           b.br;
           b.production((pb) => pb.heat(3)).nbsp.megacredits(42);

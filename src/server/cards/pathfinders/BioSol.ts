@@ -14,8 +14,8 @@ export class BioSol extends ActiveCorporationCard {
       victoryPoints: {resourcesHere: {}, per: 3},
 
       firstAction: {
-        text: 'Draw 2 cards with a microbe tag',
-        drawCard: {count: 2, tag: Tag.MICROBE},
+        text: 'Draw 3 cards with a microbe tag',
+        drawCard: {count: 3, tag: Tag.MICROBE},
       },
 
       action: {
@@ -24,9 +24,9 @@ export class BioSol extends ActiveCorporationCard {
 
       metadata: {
         cardNumber: 'PfC14',
-        description: 'You start with 42 M€. As your first action, draw 2 cards with a microbe tag.',
+        description: 'You start with 42 M€. As your first action, draw 3 cards with a microbe tag.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(42).cards(2, {secondaryTag: Tag.MICROBE}).br;
+          b.megacredits(42).cards(3, {secondaryTag: Tag.MICROBE}).br;
           b.corpBox('action', (corpbox) => corpbox.action(
             'Add 1 microbe to ANY card',
             (ab) => ab.empty().startAction.resource(CardResource.MICROBE).asterix()));

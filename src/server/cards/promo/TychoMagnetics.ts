@@ -13,12 +13,12 @@ export class TychoMagnetics extends CorporationCard {
       tags: [Tag.POWER, Tag.SCIENCE],
       startingMegaCredits: 42,
       behavior: {
-        production: {energy: 1},
+        production: {energy: 2},
       },
 
       metadata: {
         cardNumber: 'XC02', // Rename
-        description: 'You start with 42 M€. Increase your energy production 1 step.',
+        description: 'You start with 42 M€. Increase your energy production 2 step.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
           b.production((pb) => pb.energy(1)).nbsp.megacredits(42);

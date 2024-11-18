@@ -22,14 +22,14 @@ export class PharmacyUnion extends CorporationCard {
       resourceType: CardResource.DISEASE,
 
       behavior: {
-        drawCard: {count: 1, tag: Tag.SCIENCE},
+        drawCard: {count: 2, tag: Tag.SCIENCE},
         addResources: 2,
       },
 
       metadata: {
         cardNumber: 'R39',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(54).cards(1, {secondaryTag: Tag.SCIENCE});
+          b.megacredits(54).cards(2, {secondaryTag: Tag.SCIENCE});
           // blank space after MC is on purpose
           b.text('(You start with 54 M€ . Draw a Science card.)', Size.TINY, false, false);
           b.corpBox('effect', (ce) => {

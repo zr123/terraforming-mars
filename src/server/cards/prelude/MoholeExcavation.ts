@@ -11,7 +11,7 @@ export class MoholeExcavation extends PreludeCard implements IProjectCard {
       tags: [Tag.BUILDING],
 
       behavior: {
-        production: {steel: 1, heat: 2},
+        production: {steel: 1, heat: 3},
         stock: {heat: 2},
       },
 
@@ -20,10 +20,10 @@ export class MoholeExcavation extends PreludeCard implements IProjectCard {
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.steel(1).br;
-            pb.heat(2);
+            pb.heat(3);
           }).heat(2);
         }),
-        description: 'Increase your steel production 1 step and heat production 2 steps. Gain 2 heat.',
+        description: 'Increase your steel production 1 step and heat production 3 steps. Gain 2 heat.',
       },
     });
   }

@@ -20,6 +20,7 @@ export class StJosephOfCupertinoMission extends Card implements IActionCard {
     super({
       type: CardType.ACTIVE,
       name: CardName.ST_JOSEPH_OF_CUPERTINO_MISSION,
+      tags: [Tag.BUILDING],
       cost: 7,
       victoryPoints: 'special',
 

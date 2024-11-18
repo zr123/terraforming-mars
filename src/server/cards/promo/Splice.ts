@@ -22,15 +22,15 @@ export class Splice extends CorporationCard {
       startingMegaCredits: 48, // 44 + 4 as card resolution when played
 
       firstAction: {
-        text: 'Draw a card with a microbe tag',
-        drawCard: {count: 1, tag: Tag.MICROBE},
+        text: 'Draw 3 cards with a microbe tag',
+        drawCard: {count: 3, tag: Tag.MICROBE},
       },
 
       metadata: {
         cardNumber: 'R28',
-        description: 'You start with 44 M€. As your first action, reveal cards until you have revealed a microbe tag. Take it and discard the rest.',
+        description: 'You start with 44 M€. As your first action, reveal cards until reveal 3 cards with a microbe tag. Take those and discard the rest.',
         renderData: CardRenderer.builder((b) => {
-          b.megacredits(44).nbsp.cards(1, {secondaryTag: Tag.MICROBE});
+          b.megacredits(44).nbsp.cards(3, {secondaryTag: Tag.MICROBE});
           b.corpBox('effect', (ce) => {
             ce.vSpace(Size.LARGE);
             ce.effect(undefined, (eb) => {

@@ -47,10 +47,10 @@ export class ProjectWorkshop extends CorporationCard {
               eb.cards(2, {digit});
             });
             cb.vSpace(Size.SMALL);
-            cb.action('Flip and discard a played blue card to convert any VP on it into TR and draw 2 cards, or spend 3 M€ to draw a blue card.', (eb) => {
-              eb.or().megacredits(3).startAction.cards(1, {secondaryTag: AltSecondaryTag.BLUE});
+            cb.action('Flip and discard a played blue card to convert any VP on it into TR and draw 2 cards, or spend 1 M€ to draw a blue card.', (eb) => {
+              eb.or().megacredits(1).startAction.cards(1, {secondaryTag: AltSecondaryTag.BLUE});
             });
-          });
+(ab) => ab.empty().startAction.resource(CardResource.MICROBE).asterix()));          });
         }),
       },
     });
@@ -71,7 +71,7 @@ export class ProjectWorkshop extends CorporationCard {
   }
 
   public canAct(player: IPlayer): boolean {
-    return player.canAfford(3) || this.getEligibleCards(player).length > 0;
+    return player.canAfford(1) || this.getEligibleCards(player).length > 0;
   }
 
   public action(player: IPlayer) {
@@ -102,15 +102,15 @@ export class ProjectWorkshop extends CorporationCard {
           );
       });
 
-    const drawBlueCard = new SelectOption('Spend 3 M€ to draw a blue card', 'Draw card').andThen(() => {
-      player.game.defer(new SelectPaymentDeferred(player, 3,
+    const drawBlueCard = new SelectOption('Spend 1 M€ to draw a blue card', 'Draw card').andThen(() => {
+      player.game.defer(new SelectPaymentDeferred(player, 1,
         {title: TITLES.payForCardAction(this.name)}))
         .andThen(() => player.drawCard(1, {cardType: CardType.ACTIVE}));
       return undefined;
     });
 
     if (activeCards.length === 0) return drawBlueCard;
-    if (!player.canAfford(3)) return flipBlueCard;
+    if (!player.canAfford(1)) return flipBlueCard;
 
     return new OrOptions(drawBlueCard, flipBlueCard);
   }

@@ -19,14 +19,14 @@ export class RustEatingBacteria extends ActionCard implements IProjectCard {
 
       action: {
         spend: {steel: 1},
-        addResources: 2,
+        addResourcesToAnyCard: {type: CardResource.MICROBE, count: 2},
       },
 
       metadata: {
         cardNumber: 'M88',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend 1 steel to add 2 microbes here.', (eb) => {
-            eb.startAction.steel(1).arrow().resource(CardResource.MICROBE, 2);
+          b.action('Spend 1 steel to add 2 microbes to any card.', (eb) => {
+            eb.startAction.steel(1).arrow().resource(CardResource.MICROBE, 2).asterix();
           }).br;
           b.vpText('1 VP per 3 microbes here.');
         }),

@@ -16,17 +16,17 @@ export class Recyclon extends CorporationCard {
     super({
       name: CardName.RECYCLON,
       tags: [Tag.MICROBE, Tag.BUILDING],
-      startingMegaCredits: 38,
+      startingMegaCredits: 43,
       resourceType: CardResource.MICROBE,
 
       behavior: {
-        production: {steel: 1},
+        production: {steel: 2},
         addResources: 1,
       },
 
       metadata: {
         cardNumber: 'R26',
-        description: 'You start with 38 M€ and 1 steel production.',
+        description: 'You start with 43 M€ and 2 steel production.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
           b.megacredits(38).nbsp.production((pb) => pb.steel(1));

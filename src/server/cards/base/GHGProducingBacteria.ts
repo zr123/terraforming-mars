@@ -27,8 +27,8 @@ export class GHGProducingBacteria extends ActionCard {
               // LogHelper.logRemoveResource(player, this, 2, 'raise temperature 1 step');
             },
             {
-              addResources: 1,
-              title: 'Add 1 microbe to this card',
+	      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
+              title: 'Add 1 microbe to any card',
             },
           ],
         },
@@ -38,8 +38,8 @@ export class GHGProducingBacteria extends ActionCard {
         description: 'Requires 4% oxygen.',
         cardNumber: '034',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.or().br;
           b.action('Remove 2 microbes to raise temperature 1 step.', (eb) => {

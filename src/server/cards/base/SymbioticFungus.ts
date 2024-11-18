@@ -12,14 +12,14 @@ export class SymbioticFungus extends ActionCard implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.SYMBIOTIC_FUNGUS,
       tags: [Tag.MICROBE],
-      cost: 4,
+      cost: 2,
 
       action: {
         addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1, autoSelect: true},
         // return new SelectCard('Select card to add microbe', 'Add microbe', availableCards, ([card]) => {
       },
 
-      requirements: {temperature: -14},
+      requirements: {temperature: -18},
       metadata: {
         cardNumber: '133',
         renderData: CardRenderer.builder((b) => {

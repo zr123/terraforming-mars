@@ -17,11 +17,11 @@ export class MiningGuild extends CorporationCard {
     super({
       name: CardName.MINING_GUILD,
       tags: [Tag.BUILDING, Tag.BUILDING],
-      startingMegaCredits: 30,
+      startingMegaCredits: 35,
 
       behavior: {
         production: {steel: 1},
-        stock: {steel: 5},
+        stock: {steel: 7},
       },
 
       metadata: {
@@ -30,7 +30,7 @@ export class MiningGuild extends CorporationCard {
         description: 'You start with 30 M€, 5 steel and 1 steel production.',
         renderData: CardRenderer.builder((b) => {
           b.br.br;
-          b.megacredits(30).nbsp.steel(5, {digit}).nbsp.production((pb) => pb.steel(1));
+          b.megacredits(30).nbsp.steel(7, {digit}).nbsp.production((pb) => pb.steel(1));
           b.corpBox('effect', (ce) => {
             ce.effect('Each time you place a tile on an area with a steel or titanium placement bonus, increase your steel production 1 step', (eb) => {
               eb.steel(1).asterix().slash().titanium(1).asterix();

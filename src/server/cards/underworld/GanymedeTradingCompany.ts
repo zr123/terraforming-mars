@@ -12,15 +12,15 @@ export class GanymedeTradingCompany extends PreludeCard {
       behavior: {
         stock: {titanium: 3},
         colonies: {addTradeFleet: 1},
-        underworld: {corruption: 1},
+        underworld: {corruption: 2},
       },
 
       metadata: {
         cardNumber: 'UP08',
         renderData: CardRenderer.builder((b) => {
-          b.corruption().titanium(3).tradeFleet();
+          b.corruption(2).titanium(3).tradeFleet();
         }),
-        description: 'Gain 1 corruption, 3 titanium, and a trade fleet.',
+        description: 'Gain 2 corruption, 3 titanium, and a trade fleet.',
       },
     });
   }

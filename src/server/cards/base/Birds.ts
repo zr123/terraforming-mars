@@ -20,23 +20,16 @@ export class Birds extends ActionCard implements IProjectCard {
       requirements: {oxygen: 13},
       victoryPoints: {resourcesHere: {}},
 
-      behavior: {
-        decreaseAnyProduction: {type: Resource.PLANTS, count: 2},
-      },
-
       action: {
         addResources: 1,
       },
 
       metadata: {
         cardNumber: '072',
-        description: 'Requires 13% oxygen. Decrease any plant production 2 steps. 1 VP per animal on this card.',
+        description: 'Requires 13% oxygen. 1 VP per animal on this card.',
         renderData: CardRenderer.builder((b) => {
           b.action('Add an animal to this card.', (eb) => {
             eb.empty().startAction.resource(CardResource.ANIMAL);
-          }).br;
-          b.production((pb) => {
-            pb.minus().plants(-2, {all});
           });
         }),
       },

@@ -26,13 +26,8 @@ export class Thermophiles extends ActionCard implements IActionCard {
           },
           {
             // Remove "Add a microbe to this card"
-            title: 'Select a Venus card to add 1 microbe',
-            addResourcesToAnyCard: {
-              count: 1,
-              tag: Tag.VENUS,
-              type: CardResource.MICROBE,
-              autoSelect: true,
-            },
+            title: 'Select a card to add 1 microbe',
+	    addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
           }],
         },
       },
@@ -41,8 +36,8 @@ export class Thermophiles extends ActionCard implements IActionCard {
       metadata: {
         cardNumber: '253',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to ANY Venus CARD.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE, {secondaryTag: Tag.VENUS});
+          b.action('Add 1 microbe to any card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE);
           }).br;
           b.or().br;
           b.action('Remove 2 microbes to raise Venus 1 step', (eb) => {

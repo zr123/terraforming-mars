@@ -11,19 +11,19 @@ export class ThinkTank extends ActionCard {
     super({
       name: CardName.THINK_TANK,
       type: CardType.ACTIVE,
-      cost: 12,
+      cost: 8,
       tags: [Tag.MARS, Tag.VENUS, Tag.SCIENCE],
       resourceType: CardResource.DATA,
 
       action: {
-        spend: {megacredits: 2},
+        spend: {megacredits: 1},
         addResourcesToAnyCard: {count: 1, type: CardResource.DATA},
       },
 
       metadata: {
         cardNumber: 'Pf49',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend 2 M€ to place 1 data on any card.', (ab) => {
+          b.action('Spend 1 M€ to place 1 data on any card.', (ab) => {
             ab.megacredits(2).startAction.resource(CardResource.DATA).asterix();
           }).br;
           b.effect(

@@ -9,8 +9,6 @@ export class HugeAsteroid extends PreludeCard {
     super({
       name: CardName.HUGE_ASTEROID,
 
-      startingMegacredits: -5,
-
       behavior: {
         global: {temperature: 3},
       },
@@ -19,17 +17,9 @@ export class HugeAsteroid extends PreludeCard {
         cardNumber: 'P15',
         renderData: CardRenderer.builder((b) => {
           b.temperature(3).br;
-          b.megacredits(-5);
         }),
-        description: 'Increase temperature 3 steps. Pay 5 M€.',
+        description: 'Increase temperature 3 steps.',
       },
     });
-  }
-  public override bespokeCanPlay(player: IPlayer) {
-    return player.canAfford(5);
-  }
-  public override bespokePlay(player: IPlayer) {
-    player.game.defer(new SelectPaymentDeferred(player, 5));
-    return undefined;
   }
 }

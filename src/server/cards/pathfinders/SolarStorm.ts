@@ -15,21 +15,21 @@ export class SolarStorm extends Card implements IProjectCard {
     super({
       type: CardType.EVENT,
       name: CardName.SOLAR_STORM,
-      cost: 12,
+      cost: 15,
       tags: [Tag.SPACE],
 
       behavior: {
         production: {heat: 1},
         global: {temperature: 1},
+	stock: {energy: 3, heat: 3}
       },
 
       metadata: {
         cardNumber: 'Pf32',
         renderData: CardRenderer.builder((b) => {
-          b.minus().plants(2, {all}).asterix().nbsp.minus().resource(CardResource.DATA, {amount: 3, digit, all}).br;
-          b.production((pb) => pb.heat(1)).nbsp.temperature(1);
+          b.production((pb) => pb.heat(1)).nbsp.temperature(1).energy(3).heat(3);
         }),
-        description: 'Every player loses 2 plants. Remove up to 3 data from any player. ' +
+        description: 'Gain 3 energy and gain 3 Heat' +
           'Raise your heat production 1 step. Raise the temperature 1 step.',
       },
     });

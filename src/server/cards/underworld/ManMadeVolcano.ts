@@ -23,7 +23,7 @@ export class ManMadeVolcano extends Card implements IProjectCard {
       behavior: {
         production: {
           energy: 2,
-          heat: 4,
+          heat: 5,
         },
       },
 
@@ -33,7 +33,7 @@ export class ManMadeVolcano extends Card implements IProjectCard {
           b.production((pb) => pb.energy(2, {digit}).heat(4, {digit})).br;
           b.plainText('Increase your energy production 2 steps and your heat production 4 steps.').br;
           b.tile(TileType.MAN_MADE_VOLCANO).super((b) => b.excavate(1)).br;
-          b.plainText('Place this special tile on a NON-RESERVED space that has your excavation marker.').br;
+          b.plainText('Place this special tile, which grants an ADJACENCY BONUS of 1 heat and 1 energy, on a NON-RESERVED space that has your excavation marker.').br;
         }),
       },
     });
@@ -55,7 +55,7 @@ export class ManMadeVolcano extends Card implements IProjectCard {
         tile: {tileType: TileType.MAN_MADE_VOLCANO, card: this.name},
         on: () => this.availableSpaces(player),
         title: message('Select space for ${0}', (b) => b.tileType(TileType.MAN_MADE_VOLCANO)),
-        adjacencyBonus: this.adjacencyBonus,
+        adjacencyBonus: {bonus: [SpaceBonus.ENERGY, SpaceBonus.HEAT],
       }));
     return undefined;
   }

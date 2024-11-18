@@ -18,14 +18,14 @@ export class Tardigrades extends ActionCard implements IProjectCard {
       victoryPoints: {resourcesHere: {}, per: 4},
 
       action: {
-        addResources: 1,
+        addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
       },
 
       metadata: {
         cardNumber: '049',
         renderData: CardRenderer.builder((b) => {
-          b.action('Add 1 microbe to this card.', (eb) => {
-            eb.empty().startAction.resource(CardResource.MICROBE);
+          b.action('Add 1 microbe to ANY card.', (eb) => {
+            eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           }).br;
           b.vpText('1 VP per 4 Microbes on this card.');
         }),
