@@ -215,7 +215,7 @@ export class TradeWithMegacredits implements IColonyTrader {
     this.tradeCost = MC_TRADE_COST- player.colonies.tradeDiscount;
     const adhai = player.getCorporation(CardName.ADHAI_HIGH_ORBIT_CONSTRUCTIONS);
     if (adhai !== undefined) {
-      const adhaiDiscount = Math.floor(adhai.resourceCount / 2);
+      const adhaiDiscount = Math.floor(adhai.resourceCount);
       this.tradeCost = Math.max(0, this.tradeCost - adhaiDiscount);
     }
   }
