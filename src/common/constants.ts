@@ -64,7 +64,7 @@ export const MAXIMUM_LOGISTICS_RATE = 8;
 
 // Pathfinders
 export const SEED_VALUE = 5;
-export const DATA_VALUE = 3;
+export const DATA_VALUE = 2;
 
 // Escape Velocity
 export const DEFAULT_ESCAPE_VELOCITY_THRESHOLD = 30;

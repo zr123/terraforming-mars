@@ -27,8 +27,8 @@ export class Aurorai extends CorporationCard {
           b.effect('Whenever you increase your terraform rating, add 1 data per step to ANY card.', (eb) => {
             eb.tr(1).startEffect.resource(CardResource.DATA).asterix();
           }).br;
-          b.effect('You can use data on this card as 3M€ each to pay for standard projects.', (eb) => {
-            eb.resource(CardResource.DATA).startEffect.megacredits(3).asterix().text('standard project');
+          b.effect('You can use data on this card as 2M€ each to pay for standard projects.', (eb) => {
+            eb.resource(CardResource.DATA).startEffect.megacredits(2).asterix().text('standard project');
           });
         }),
       },
