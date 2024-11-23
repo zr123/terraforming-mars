@@ -158,9 +158,18 @@ export abstract class Colony implements IColony {
       player.colonies.tradesThisGeneration++;
     }
 
+    // Venus Trade Hub
     if (player.cardIsInEffect(CardName.VENUS_TRADE_HUB)) {
       player.stock.add(Resource.MEGACREDITS, 3, {log: true});
     }
+
+    // Toll Station
+    const players = player.game.getPlayers();
+    players.forEach((p) => {
+        if (p.cardIsInEffect(CardName.TOLL_STATION)) {
+          p.stock.add(Resource.MEGACREDITS, 1, {log: true});
+        }
+    });
 
     // !== false because default is true.
     if (options.decreaseTrackAfterTrade !== false) {

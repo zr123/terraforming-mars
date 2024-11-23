@@ -9,10 +9,10 @@ import {all} from '../Options';
 export class TollStation extends Card implements IProjectCard {
   constructor() {
     super({
-      type: CardType.AUTOMATED,
+      type: CardType.ACTIVE,
       name: CardName.TOLL_STATION,
       tags: [Tag.SPACE],
-      cost: 30,
+      cost: 8,
 
       behavior: {
         production: {megacredits: {tag: Tag.SPACE, others: true}},
@@ -21,11 +21,8 @@ export class TollStation extends Card implements IProjectCard {
       metadata: {
         cardNumber: '099',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => {
-            pb.megacredits(1).slash().tag(Tag.SPACE, {all}).asterix();
-          });
+	  b.effect('When anyone trades, you gain 1 M€.', (eb) => eb.trade({all}).startEffect.megacredits(1));
         }),
-        description: 'Increase your M€ production 1 step for each space tag your OPPONENTS have.',
       },
     });
   }

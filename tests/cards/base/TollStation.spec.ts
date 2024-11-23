@@ -1,15 +1,31 @@
 import {expect} from 'chai';
 import {TollStation} from '../../../src/server/cards/base/TollStation';
 import {cast, testGame} from '../../TestingUtils';
+import {Ceres} from '../../../src/server/colonies/Ceres';
 
 describe('TollStation', function() {
-  it('Should play', function() {
-    const card = new TollStation();
-    const [/* game */, player, anotherPlayer] = testGame(2);
-    cast(card.play(player), undefined);
-    anotherPlayer.playedCards.push(card);
-    expect(player.production.megacredits).to.eq(0);
-    card.play(player);
-    expect(player.production.megacredits).to.eq(1);
+  let card: TollStation;
+  let player: TestPlayer;
+  let anotherPlayer: TestPlayer;
+  let game: IGame;
+
+
+  beforeEach(() => {
+    card = new TollStation();
+    [game, player, anotherPlayer] = testGame(2, {coloniesExtension: true});
+    //cast(card.play(player), undefined);
+
+  });
+
+  it('Should give credits on trade', function() {
+    player.playedCards.push(card);
+    const ceres = new Ceres();
+    game.colonies.push(ceres);
+
+    ceres.trade(player);
+    expect(player.megaCredits).to.eq(1);
+
+    ceres.trade(anotherPlayer);
+    expect(player.megaCredits).to.eq(2);
   });
 });
