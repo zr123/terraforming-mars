@@ -23,7 +23,7 @@ export class Steelworks extends ActionCard implements IProjectCard {
         cardNumber: '103',
         renderData: CardRenderer.builder((b) => {
           b.action('Spend 3 energy to gain 5 steel.', (eb) => {
-            eb.energy(3, {digit}).startAction.steel(5);
+            eb.energy(3, {digit}).br.startAction.br.steel(5);
           });
         }),
       },
