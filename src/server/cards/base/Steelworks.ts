@@ -4,7 +4,6 @@ import {ActionCard} from '../ActionCard';
 import {CardType} from '../../../common/cards/CardType';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
-import {digit} from '../Options';
 
 export class Steelworks extends ActionCard implements IProjectCard {
   constructor() {
@@ -22,10 +21,13 @@ export class Steelworks extends ActionCard implements IProjectCard {
       metadata: {
         cardNumber: '103',
         renderData: CardRenderer.builder((b) => {
-          b.action('Spend 3 energy to gain 5 steel.', (eb) => {
-            eb.energy(3, {digit}).br.startAction.br.steel(5);
+          b.action('Spend 3 energy', (eb) => {
+            eb.energy(3).startAction.empty();
           });
+	  b.br;
+	  b.steel(5);
         }),
+	description: 'to gain 5 steel.',
       },
     });
   }
