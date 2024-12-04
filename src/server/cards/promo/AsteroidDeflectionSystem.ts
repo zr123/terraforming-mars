@@ -15,7 +15,7 @@ export class AsteroidDeflectionSystem extends Card implements IActionCard, IProj
       type: CardType.ACTIVE,
       name: CardName.ASTEROID_DEFLECTION_SYSTEM,
       tags: [Tag.SPACE, Tag.EARTH, Tag.BUILDING],
-      cost: 11,
+      cost: 8,
 
       resourceType: CardResource.ASTEROID,
       victoryPoints: {resourcesHere: {}},

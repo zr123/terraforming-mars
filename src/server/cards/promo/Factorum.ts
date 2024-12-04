@@ -24,7 +24,7 @@ export class Factorum extends CorporationCard implements IActionCard {
 
       metadata: {
         cardNumber: 'R22',
-        description: 'You start with 37 M€. Increase your steel production 1 step.',
+        description: 'You start with 42 M€. Increase your steel production 1 step.',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(42).nbsp.production((pb) => pb.steel(1));
           b.corpBox('action', (ce) => {

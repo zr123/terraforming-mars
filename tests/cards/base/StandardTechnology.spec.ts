@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import {AsteroidStandardProject} from '../../../src/server/cards/base/standardProjects/AsteroidStandardProject';
 import {SellPatentsStandardProject} from '../../../src/server/cards/base/standardProjects/SellPatentsStandardProject';
+import {ExcavateStandardProject} from '../../../src/server/cards/underworld/ExcavateStandardProject';
 import {StandardTechnology} from '../../../src/server/cards/base/StandardTechnology';
 import {TestPlayer} from '../../TestPlayer';
 import {testGame} from '../../TestGame';
@@ -27,9 +28,15 @@ describe('StandardTechnology', function() {
     expect(player.megaCredits).to.eq(3);
   });
 
-  it('No rebate for Asteroid standard project', function() {
+  it('No rebate for Sell Patents standard project', function() {
     player.playedCards.push(card);
     card.onStandardProject(player, new SellPatentsStandardProject());
+    expect(player.megaCredits).to.eq(0);
+  });
+
+  it('No rebate for Excavate standard project', function() {
+    player.playedCards.push(card);
+    card.onStandardProject(player, new ExcavateStandardProject());
     expect(player.megaCredits).to.eq(0);
   });
 

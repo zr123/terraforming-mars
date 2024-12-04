@@ -11,7 +11,7 @@ export class EarthOffice extends Card implements IProjectCard {
       type: CardType.ACTIVE,
       name: CardName.EARTH_OFFICE,
       tags: [Tag.EARTH],
-      cost: 9,
+      cost: 7,
 
       cardDiscount: {tag: Tag.EARTH, amount: 3},
       metadata: {

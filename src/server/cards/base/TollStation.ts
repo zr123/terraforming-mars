@@ -14,10 +14,6 @@ export class TollStation extends Card implements IProjectCard {
       tags: [Tag.SPACE],
       cost: 8,
 
-      behavior: {
-        production: {megacredits: {tag: Tag.SPACE, others: true}},
-      },
-
       metadata: {
         cardNumber: '099',
         renderData: CardRenderer.builder((b) => {
