@@ -12,23 +12,23 @@ export class BiomassCombustors extends Card implements IProjectCard {
     super({
       type: CardType.AUTOMATED,
       name: CardName.BIOMASS_COMBUSTORS,
-      tags: [Tag.POWER, Tag.BUILDING],
+      tags: [Tag.POWER, Tag.BUILDING, Tag.PLANT],
       cost: 4,
-      victoryPoints: -1,
+      victoryPoints: 1,
 
       // This might not work for Robotic Workforce yet.
       behavior: {
         decreaseAnyProduction: {type: Resource.PLANTS, count: 1},
-        production: {energy: 2},
+        production: {energy: 2, plants: -1},
       },
 
-      requirements: {oxygen: 6},
+      requirements: {oxygen: 3},
       metadata: {
-        description: 'Requires 6% oxygen. Decrease any plant production 1 step and increase your energy production 2 steps.',
+        description: 'Requires 3% oxygen. Decrease plant production 1 step and increase your energy production 2 steps.',
         cardNumber: '183',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().plants(-1, {all}).br;
+            pb.minus().plants(-1).br;
             pb.plus().energy(2);
           });
         }),
