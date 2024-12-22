@@ -3,7 +3,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 import {CardType} from '../../../common/cards/CardType';
-import {max} from '../Options';
 
 export class SoilStudies extends Card {
   constructor() {
@@ -13,7 +12,7 @@ export class SoilStudies extends Card {
       tags: [Tag.MICROBE, Tag.PLANT],
       cost: 13,
 
-      requirements: {temperature: -4, max},
+      requirements: {oxygen: 8},
 
       behavior: {
         stock: {
@@ -29,7 +28,7 @@ export class SoilStudies extends Card {
         renderData: CardRenderer.builder((b) => {
           b.plants(1).slash().tag(Tag.VENUS).tag(Tag.PLANT).colonies(1).br;
         }),
-        description: 'Requires that temperature is -4 C or lower. Gain 1 plant per Venus tag, plant tag, and colony you have.',
+        description: 'Requires that oxygen is 8% or higher. Gain 1 plant per Venus tag, plant tag, and colony you have.',
       },
     });
   }

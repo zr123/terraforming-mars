@@ -12,7 +12,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class EcologyResearch extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 21,
+      cost: 16,
       tags: [Tag.SCIENCE, Tag.PLANT, Tag.ANIMAL, Tag.MICROBE],
       name: CardName.ECOLOGY_RESEARCH,
       type: CardType.AUTOMATED,

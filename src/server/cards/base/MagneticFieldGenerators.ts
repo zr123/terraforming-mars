@@ -15,7 +15,7 @@ export class MagneticFieldGenerators extends Card implements IProjectCard {
       cost: 20,
 
       behavior: {
-        production: {energy: -4, plants: 2},
+        production: {energy: -2, plants: 2},
         tr: 3,
       },
 

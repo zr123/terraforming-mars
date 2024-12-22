@@ -11,7 +11,7 @@ import {CardRenderer} from '../render/CardRenderer';
 export class MicrogravityNutrition extends Card implements IProjectCard {
   constructor() {
     super({
-      cost: 11,
+      cost: 8,
       tags: [Tag.MICROBE, Tag.PLANT],
       name: CardName.MICROGRAVITY_NUTRITION,
       type: CardType.AUTOMATED,

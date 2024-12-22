@@ -1109,9 +1109,6 @@ export class Player implements IPlayer {
 
   // Public for tests.
   public awardFundingCost() {
-    if (this.isCorporation(CardName.NIRGAL_ENTERPRISES)) {
-      return 0;
-    }
     const plus8 = this.isStagedProtestsActive() ? 8 : 0;
     return this.game.getAwardFundingCost() + plus8;
   }
