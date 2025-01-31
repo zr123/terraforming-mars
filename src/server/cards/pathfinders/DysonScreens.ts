@@ -13,7 +13,7 @@ export class DysonScreens extends ActionCard {
       type: CardType.ACTIVE,
       name: CardName.DYSON_SCREENS,
       tags: [Tag.SCIENCE, Tag.VENUS, Tag.POWER, Tag.SPACE],
-      cost: 28,
+      cost: 21,
       victoryPoints: 1,
 
       behavior: {
@@ -24,7 +24,7 @@ export class DysonScreens extends ActionCard {
       },
 
       action: {
-        spend: {titanium: 2},
+        spend: {titanium: 1},
         production: {energy: 1, heat: 1},
       },
 
@@ -32,7 +32,7 @@ export class DysonScreens extends ActionCard {
         cardNumber: 'Pf15',
         renderData: CardRenderer.builder((b) => {
           b.action(
-            'Pay 2 titanium to raise your heat and energy production 1 step each.',
+            'Pay 1 titanium to raise your heat and energy production 1 step each.',
             (ab) => ab.titanium(2, {digit}).startAction.production((pb) => pb.heat(1).energy(1))).br;
           b.temperature(1).cards(1, {size: Size.SMALL}).city({size: Size.SMALL}).asterix();
           b.production((pb) => pb.heat(2, {digit}).energy(2, {digit}));

@@ -23,12 +23,12 @@ export class MagneticFieldGenerators extends Card implements IProjectCard {
         cardNumber: '165',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().energy(4, {digit}).br;
+            pb.minus().energy(2, {digit}).br;
             pb.plus().plants(2);
           }).br;
           b.tr(3);
         }),
-        description: 'Decrease your energy production 4 steps and increase your plant production 2 steps. Raise your TR 3 steps.',
+        description: 'Decrease your energy production 2 steps and increase your plant production 2 steps. Raise your TR 3 steps.',
       },
     });
   }

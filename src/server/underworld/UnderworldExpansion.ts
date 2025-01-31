@@ -47,41 +47,41 @@ export class UnderworldExpansion {
       }
     }
 
-    add(5, 'nothing');
-    add(13, 'data1');
+    add(3, 'nothing');
+    add(11, 'data1');
     add(4, 'data2');
-    add(1, 'data3');
+    add(2, 'data3');
 
     add(10, 'corruption1');
     add(2, 'corruption2');
 
-    add(4, 'card1');
-    add(1, 'card2');
+    add(5, 'card1');
+    add(2, 'card2');
 
-    add(3, 'steel2');
-    add(1, 'steel1production');
+    add(4, 'steel2');
+    add(2, 'steel1production');
 
-    add(3, 'titaniumandplant');
-    add(3, 'titanium2');
-    add(1, 'titanium1production');
+    add(4, 'titaniumandplant');
+    add(4, 'titanium2');
+    add(2, 'titanium1production');
 
-    add(4, 'plant2');
-    add(1, 'plant3');
-    add(4, 'plant1production');
+    add(5, 'plant2');
+    add(2, 'plant3');
+    add(5, 'plant1production');
 
-    add(5, 'energy1production');
-    add(3, 'heat2production');
+    add(6, 'energy1production');
+    add(4, 'heat2production');
 
-    add(4, 'microbe2');
+    add(5, 'microbe2');
 
-    add(2, 'tr');
+    add(3, 'tr');
     add(2, 'ocean');
 
-    add(3, 'data1pertemp');
-    add(1, 'microbe1pertemp');
-    add(3, 'plant2pertemp');
-    add(3, 'steel2pertemp');
-    add(3, 'titanium1pertemp');
+    //add(3, 'data1pertemp');
+    //add(1, 'microbe1pertemp');
+    //add(3, 'plant2pertemp');
+    //add(3, 'steel2pertemp');
+    //add(3, 'titanium1pertemp');
 
     return tokens;
   }
