@@ -17,7 +17,7 @@ export class TollStation extends Card implements IProjectCard {
       metadata: {
         cardNumber: '099',
         renderData: CardRenderer.builder((b) => {
-	  b.effect('When anyone trades, you gain 1 M€.', (eb) => eb.trade({all}).startEffect.megacredits(1));
+        b.effect('When anyone trades, you gain 1 M€.', (eb) => eb.trade({all}).startEffect.megacredits(1));
         }),
       },
     });

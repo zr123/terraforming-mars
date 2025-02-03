@@ -16,7 +16,7 @@ export class SolarStorm extends Card implements IProjectCard {
       behavior: {
         production: {heat: 1},
         global: {temperature: 1},
-	stock: {energy: 3, heat: 3}
+        stock: {energy: 3, heat: 3}
       },
 
       metadata: {

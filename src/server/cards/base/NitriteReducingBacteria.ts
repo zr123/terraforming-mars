@@ -29,7 +29,7 @@ export class NitriteReducingBacteria extends ActionCard {
               // LogHelper.logRemoveResource(player, this, 3, 'gain 1 TR');
             },
             {
-	      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
+            addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
               title: 'Add 1 microbe to this card',
             },
           ],

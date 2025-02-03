@@ -26,7 +26,7 @@ export class RegolithEaters extends ActionCard implements IProjectCard {
           },
           {
             title: 'Add 1 microbe to any card',
-	    addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
+            addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
           }],
         },
       },
