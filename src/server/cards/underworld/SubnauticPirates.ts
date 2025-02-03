@@ -20,11 +20,11 @@ export class SubnauticPirates extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U11',
         renderData: CardRenderer.builder((b) => {
-          b.oceans(1).excavate().asterix().colon().text('STEAL').megacredits(6);
+          b.oceans(1).excavate().asterix().colon().text('  ').megacredits(6);
         }),
         description: 'Requires 1 excavation marker and 1 corruption. Pick an ocean tile ' +
-        'that has your excavation marker on it. Steal 6 M€ from each other player that ' +
-        'owns a tile adjacent to that ocean. This can be blocked by corruption.',
+        'that has your excavation marker on it. Gain 6 M€ for each other player that ' +
+        'owns a tile adjacent to that ocean.',
       },
     });
   }
@@ -49,12 +49,7 @@ export class SubnauticPirates extends Card implements IProjectCard {
         }
 
         set.forEach((target) => {
-          target.maybeBlockAttack(player, (proceed) => {
-            if (proceed) {
-              target.stock.steal(Resource.MEGACREDITS, 6, player);
-            }
-            return undefined;
-          });
+          player.megaCredits += 6;
         });
         return undefined;
       });

@@ -21,46 +21,22 @@ export class HiredRaiders extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'UX02',
         renderData: CardRenderer.builder((b) => {
-          b.text('steal', Size.MEDIUM, true).megacredits(3, {all})
-            .plus().megacredits(2, {all}).slash().corruption();
+          b.text('  ', Size.MEDIUM, true).megacredits(3)
+            .plus().megacredits(2).slash().corruption();
         }),
-        description: 'Steal 3 M€, plus 2 extra M€ for each corruption resource you have, from any player.',
+        description: 'Gain 3 M€, plus 2 extra M€ for each corruption resource you have.',
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
     const amount = 3 + (2 * player.underworldData.corruption);
-    if (player.game.isSoloMode()) {
-      player.megaCredits += amount;
-      player.game.log('${0} stole ${1} M€ from the neutral player', (b) =>
-        b.player(player).number(amount),
-      );
-    }
 
-    const availableActions = new OrOptions();
-
-    player.getOpponents().forEach((target) => {
-      if (target.megaCredits > 0) {
-        const amountStolen = Math.min(amount, target.megaCredits);
-        const optionTitle = message('Steal ${0} M€ from ${1}', (b) => b.number(amountStolen).player(target));
-
-        availableActions.options.push(new SelectOption(optionTitle).andThen(() => {
-          target.maybeBlockAttack(player, (proceed) => {
-            if (proceed) {
-              target.stock.steal(Resource.MEGACREDITS, amountStolen, player);
-            }
-            return undefined;
-          });
-          return undefined;
-        }));
-      }
-    });
-
-    if (availableActions.options.length > 0) {
-      availableActions.options.push(new SelectOption('Do not steal'));
-      return availableActions;
-    }
+    player.megaCredits += amount;
+    player.game.log('${0} stole ${1} M€ from the neutral player', (b) =>
+      b.player(player).number(amount),
+    );
+    
     return undefined;
   }
 }

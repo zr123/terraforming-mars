@@ -20,10 +20,10 @@ export class Monopoly extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U65',
         renderData: CardRenderer.builder((b) => {
-          b.text('STEAL').production((pb) => pb.wild(1, {all})).br;
+          b.production((pb) => pb.wild(1, {all})).br;
         }),
         description: 'Requires 3 corruption. Choose a standard production type. ' +
-          'Steal up to 1 unit of that production from EACH OTHER player. They can block this with corruption.',
+          'Gain up to 1 unit of that production for EACH OTHER player.',
       },
     });
   }
@@ -42,7 +42,7 @@ export class Monopoly extends Card implements IProjectCard {
 
   public override bespokePlay(player: IPlayer) {
     return new SelectResource(
-      'Select which resource type to steal from all other players.',
+      'Select which resource type to gain for each other players.',
       this.availableProductions(player))
       .andThen((unitKey) => {
         const resource = Units.ResourceMap[unitKey];
@@ -52,16 +52,8 @@ export class Monopoly extends Card implements IProjectCard {
           return undefined;
         }
         for (const target of player.getOpponents()) {
-          if (target.canHaveProductionReduced(resource, 1, player)) {
-            target.maybeBlockAttack(player, (proceed: boolean) => {
-              if (proceed) {
-                target.production.add(resource, -1, {log: true, from: player, stealing: true});
-                player.production.add(resource, 1, {log: false});
-                target.resolveInsurance();
-              }
-              return undefined;
-            });
-          }
+          player.production.add(resource, 1, {log: false});
+          return undefined;
         }
         return undefined;
       });

@@ -3,7 +3,7 @@ import {CardType} from '../../../common/cards/CardType';
 import {IPlayer} from '../../IPlayer';
 import {CardName} from '../../../common/cards/CardName';
 import {Resource} from '../../../common/Resource';
-import {StealResources} from '../../deferredActions/StealResources';
+import {  Resources} from '../../deferredActions/  Resources';
 import {Card} from '../Card';
 import {Size} from '../../../common/cards/render/Size';
 import {CardRenderer} from '../render/CardRenderer';
@@ -20,18 +20,18 @@ export class SpecialPermit extends Card implements IProjectCard {
       tags: [Tag.PLANT],
       requirements: {party: PartyName.GREENS},
 
+      behavior: {
+        stock: {plants: 5},
+      },
+
       metadata: {
         cardNumber: 'P82',
-        description: 'Requires that Greens are ruling or that you have 2 delegates there. Steal 4 plants from any player.',
+        description: 'Requires that Greens are ruling or that you have 2 delegates there. Gain 4 plants.',
         renderData: CardRenderer.builder((b) => {
-          b.text('steal', Size.MEDIUM, true).plants(4, {all, digit});
+          b.text('  ', Size.MEDIUM, true).plants(4, {all, digit});
         }),
       },
     });
   }
 
-  public override bespokePlay(player: IPlayer) {
-    player.game.defer(new StealResources(player, Resource.PLANTS, 4));
-    return undefined;
-  }
 }

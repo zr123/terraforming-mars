@@ -28,11 +28,10 @@ export class RoadPiracy extends Card implements IProjectCard {
 
       metadata: {
         description: 'Requires 3 logistic rate. ' +
-          'Steal up to 6 steel or 4 titanium from other players. ' +
-          '(Resources may be stolen from more than 1 opponent.)',
+          'Gain up to 6 steel or 4 titanium. ',
         cardNumber: 'M54',
         renderData: CardRenderer.builder((b) => {
-          b.text('STEAL').steel(6, {all}).slash().titanium(4, {all, digit}).asterix();
+          b.steel(6).slash().titanium(4).asterix();
         }),
       },
     });
@@ -60,9 +59,9 @@ export class RoadPiracy extends Card implements IProjectCard {
     const cb = () => {
       const total = sum(Array.from(ledger.values()));
       if (total > limit) {
-        // throw new Error(newMessage('You may only steal up to ${0} ${1} from all players', (b) => b.number(limit).string(resource)));
+        // throw new Error(newMessage('You may only    up to ${0} ${1} from all players', (b) => b.number(limit).string(resource)));
         ledger.clear();
-        throw new Error(`You may only steal up to ${limit} ${resource} from all players`);
+        throw new Error(`You may only    up to ${limit} ${resource} from all players`);
       }
       for (const [target, count] of ledger) {
         if (count === 0) {
@@ -70,7 +69,7 @@ export class RoadPiracy extends Card implements IProjectCard {
         }
         target.maybeBlockAttack(player, (proceed) => {
           if (proceed) {
-            target.stock.steal(resource, count, player);
+            target.stock.  (resource, count, player);
           }
           return undefined;
         });
@@ -91,38 +90,17 @@ export class RoadPiracy extends Card implements IProjectCard {
 
   public do(player: IPlayer) {
     const game = player.game;
-    const stealSteel = message('Steal ${0} steel', (b) => b.number(6));
-    const stealTitanium = message('Steal ${0} titanium', (b) => b.number(4));
-    if (game.isSoloMode()) {
-      return new OrOptions(
-        new SelectOption(stealSteel, 'Steal steel').andThen(() => {
-          player.steel += 6;
-          return undefined;
-        }),
-        new SelectOption(stealTitanium, 'Steal titanium').andThen(() => {
-          player.titanium += 4;
-          return undefined;
-        }),
-      );
-    }
-
-    const options = new OrOptions();
-
-    const steelOption = this.generateOption(player, Resource.STEEL, stealSteel, 6);
-    if (steelOption !== undefined) {
-      options.options.push(steelOption);
-    }
-
-    const titaniumOption = this.generateOption(player, Resource.TITANIUM, stealTitanium, 4);
-    if (titaniumOption !== undefined) {
-      options.options.push(titaniumOption);
-    }
-
-    if (options.options.length === 0) {
-      return undefined;
-    }
-
-    options.options.push(new SelectOption('Do not steal'));
-    return options;
+    const   Steel = message('   ${0} steel', (b) => b.number(6));
+    const   Titanium = message('   ${0} titanium', (b) => b.number(4));
+    return new OrOptions(
+      new SelectOption(  Steel, '   steel').andThen(() => {
+        player.steel += 6;
+        return undefined;
+      }),
+      new SelectOption(  Titanium, '   titanium').andThen(() => {
+        player.titanium += 4;
+        return undefined;
+      }),
+    );
   }
 }
