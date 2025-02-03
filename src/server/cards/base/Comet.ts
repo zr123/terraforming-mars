@@ -17,15 +17,13 @@ export class Comet extends Card implements IProjectCard {
       behavior: {
         global: {temperature: 1},
         ocean: {},
-        removeAnyPlants: 3,
       },
 
       metadata: {
         cardNumber: '010',
-        description: 'Raise temperature 1 step and place an ocean tile. Remove up to 3 plants from any player.',
+        description: 'Raise temperature 1 step and place an ocean tile.',
         renderData: CardRenderer.builder((b) => {
           b.temperature(1).oceans(1).br;
-          b.minus().plants(-3, {all});
         }),
       },
     });

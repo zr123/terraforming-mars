@@ -19,13 +19,16 @@ export class AsteroidMiningConsortium extends Card implements IProjectCard {
       cost: 13,
       victoryPoints: 1,
 
+      behavior: {
+        production: {titanium: 1},
+      },
+
       requirements: {production: Resource.TITANIUM, count: 1},
       metadata: {
-        description: 'Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.',
+        description: 'Requires that you have titanium production. Increase titanium production 1 step.',
         cardNumber: '002',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().titanium(-1, {all}).br;
             pb.plus().titanium(1);
           });
         }),
@@ -33,13 +36,4 @@ export class AsteroidMiningConsortium extends Card implements IProjectCard {
     });
   }
 
-  public override bespokePlay(player: IPlayer) {
-    player.game.defer(new DecreaseAnyProduction(
-      player,
-      Resource.TITANIUM,
-      {count: 1, stealing: true},
-    ));
-    player.game.defer(new GainProduction(player, Resource.TITANIUM, {count: 1, log: false}));
-    return undefined;
-  }
 }

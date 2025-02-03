@@ -23,24 +23,17 @@ export class DustStorm extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'Pf08',
         renderData: CardRenderer.builder((b) => {
-          b.minus().energy(1, {all}).asterix();
+          b.minus().energy(1).asterix();
           b.br;
           b.temperature(2);
         }),
-        description: 'Every player loses all energy. Raise the temperature 2 steps.',
+        description: 'Lose all energy. Raise the temperature 2 steps.',
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
-    player.game.getPlayers().forEach((target) => {
-      target.maybeBlockAttack(player, (proceed) => {
-        if (proceed) {
-          target.stock.deduct(Resource.ENERGY, target.energy, {log: true});
-        }
-        return undefined;
-      });
-    });
+    player.stock.deduct(Resource.ENERGY, player.energy, {log: true});
     return undefined;
   }
 }

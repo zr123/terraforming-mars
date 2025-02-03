@@ -16,7 +16,6 @@ export class ImpactorSwarm extends Card implements IProjectCard {
 
       behavior: {
         stock: {heat: 12},
-        removeAnyPlants: 2,
       },
 
       requirements: {tag: Tag.JOVIAN, count: 2},
@@ -24,9 +23,8 @@ export class ImpactorSwarm extends Card implements IProjectCard {
         cardNumber: 'C16',
         renderData: CardRenderer.builder((b) => {
           b.heat(12, {digit}).br;
-          b.minus().plants(2, {all});
         }),
-        description: 'Requires 2 Jovian tags. Gain 12 heat. Remove up to 2 plants from any player.',
+        description: 'Requires 2 Jovian tags. Gain 12 heat.',
       },
     });
   }

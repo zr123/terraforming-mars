@@ -19,6 +19,7 @@ export class PlantTax extends Card implements IProjectCard {
       type: CardType.EVENT,
       cost: 7,
       tags: [Tag.MARS],
+      reserveUnits: {plants: 2},
 
       behavior: {
         underworld: {markThisGeneration: {}},
@@ -27,19 +28,11 @@ export class PlantTax extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U67',
         renderData: CardRenderer.builder((b) => {
-          b.minus().plants(2, {all}).asterix().corruption().asterix();
+          b.minus().plants(2).asterix().corruption().asterix();
         }),
-        description: 'ALL players lose 2 plants. Players can block this with corruption. Gain 1 corruption DURING THE PRODUCTION PHASE OF THIS GENERATION.',
+        description: 'Spend 2 plants. Gain 1 corruption DURING THE PRODUCTION PHASE OF THIS GENERATION.',
       },
     });
-  }
-
-  public override bespokePlay(player: IPlayer) {
-    const game = player.game;
-    for (const target of game.getPlayers()) {
-      game.defer(new RemoveResources(target, player, Resource.PLANTS, 2));
-    }
-    return undefined;
   }
 
   public onProductionPhase(player: IPlayer) {

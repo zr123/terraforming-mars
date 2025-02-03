@@ -18,12 +18,16 @@ export class AirRaid extends Card implements IProjectCard {
       name: CardName.AIR_RAID,
       type: CardType.EVENT,
 
+      behavior: {
+        stock: {megacredits: 5},
+      },
+
       metadata: {
         cardNumber: 'C02',
-        description: 'Requires that you lose 1 floater. Steal 5 M€ from any player.',
+        description: 'Requires that you lose 1 floater. Gain 5 M€.',
         renderData: CardRenderer.builder((b) => {
           b.minus().resource(CardResource.FLOATER);
-          b.text('steal', Size.MEDIUM, true).megacredits(5, {all});
+          b.megacredits(5);
         }),
       },
     });
@@ -34,7 +38,6 @@ export class AirRaid extends Card implements IProjectCard {
   }
 
   public override bespokePlay(player: IPlayer) {
-    player.game.defer(new StealResources(player, Resource.MEGACREDITS, 5));
     player.game.defer(new RemoveResourcesFromCard(player, CardResource.FLOATER, 1, {source: 'self', blockable: false}));
     return undefined;
   }

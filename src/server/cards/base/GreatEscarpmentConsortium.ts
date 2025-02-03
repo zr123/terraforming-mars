@@ -21,19 +21,11 @@ export class GreatEscarpmentConsortium extends Card implements IProjectCard {
         cardNumber: '061',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().steel(-1, {all}).br;
             pb.plus().steel(1);
           });
         }),
-        description: 'Requires that you have steel production. Decrease any steel production 1 step and increase your own 1 step.',
+        description: 'Requires that you have steel production. Increase steel production 1 step.',
       },
     });
-  }
-
-  public override bespokePlay(player: IPlayer) {
-    player.game.defer(
-      new DecreaseAnyProduction(player, Resource.STEEL, {count: 1, stealing: true}));
-    player.game.defer(new GainProduction(player, Resource.STEEL, {count: 1, log: true}));
-    return undefined;
   }
 }

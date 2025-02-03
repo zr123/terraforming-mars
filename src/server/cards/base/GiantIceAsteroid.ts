@@ -16,17 +16,15 @@ export class GiantIceAsteroid extends Card implements IProjectCard {
 
       behavior: {
         global: {temperature: 2},
-        removeAnyPlants: 6,
         ocean: {count: 2},
       },
 
       metadata: {
-        description: 'Raise temperature 2 steps and place 2 ocean tiles. Remove up to 6 plants from any player.',
+        description: 'Raise temperature 2 steps and place 2 ocean tiles.',
         cardNumber: '080',
         renderData: CardRenderer.builder((b) => {
           b.temperature(2).br;
           b.oceans(2).br;
-          b.minus().plants(-6, {all});
         }),
       },
     });

@@ -23,10 +23,9 @@ export class PublicSponsoredGrant extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'PfTVD',
         renderData: CardRenderer.builder((b) => {
-          b.minus().megacredits(2, {all}).br;
           b.cards(1, {secondaryTag: Tag.WILD}).cards(1, {secondaryTag: Tag.WILD}).asterix();
         }),
-        description: 'Requires Scientists are ruling or that you have 2 delegates there. All players lose 2M€. Choose a tag (NOT CITY, ? OR PLANETARY TRACK) and draw 2 cards with that tag.',
+        description: 'Requires Scientists are ruling or that you have 2 delegates there. Choose a tag (NOT CITY, ? OR PLANETARY TRACK) and draw 2 cards with that tag.',
       },
     });
   }
@@ -36,15 +35,6 @@ export class PublicSponsoredGrant extends Card implements IProjectCard {
   }
 
   public override bespokePlay(player: IPlayer) {
-    player.getOpponents().forEach((target) => {
-      target.maybeBlockAttack(player, (proceed) => {
-        if (proceed) {
-          target.stock.deduct(Resource.MEGACREDITS, Math.min(target.megaCredits, 2), {log: true, from: player});
-        }
-        return undefined;
-      });
-    });
-
     const tags = [...ALL_TAGS];
     inplaceRemove(tags, Tag.CITY);
     inplaceRemove(tags, Tag.WILD);

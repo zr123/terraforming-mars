@@ -17,6 +17,7 @@ export class SmallComet extends Card implements IProjectCard {
       name: CardName.SMALL_COMET,
       cost: 32,
       tags: [Tag.MARS, Tag.SPACE],
+      reserveUnits: {plants: 2},
 
       behavior: {
         stock: {titanium: 1},
@@ -27,24 +28,16 @@ export class SmallComet extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'Pf37',
         renderData: CardRenderer.builder((b) => {
-          b.minus().plants(2, {all}).asterix();
+          b.minus().plants(2).asterix();
           b.br;
           b.temperature(1).oxygen(1).oceans(1).asterix();
           b.br;
           b.titanium(1);
         }),
-        description: 'Every player loses 2 plants. Raise the temperature 1 step. Raise the oxygen 1 step. ' +
+        description: 'Spend 2 plants. Raise the temperature 1 step. Raise the oxygen 1 step. ' +
           'Place an ocean ON AN AREA NOT RESERVED FOR OCEAN. Gain 1 titanium.',
       },
     });
-  }
-
-  public override bespokePlay(player: IPlayer) {
-    const game = player.game;
-    for (const target of game.getPlayers()) {
-      game.defer(new RemoveResources(target, player, Resource.PLANTS, 2), Priority.ATTACK_OPPONENT);
-    }
-    return undefined;
   }
 }
 

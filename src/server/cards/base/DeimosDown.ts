@@ -17,16 +17,14 @@ export class DeimosDown extends Card implements IProjectCard {
       behavior: {
         stock: {steel: 4},
         global: {temperature: 3},
-        removeAnyPlants: 8,
       },
 
       metadata: {
         cardNumber: '039',
-        description: 'Raise temperature 3 steps and gain 4 steel. Remove up to 8 plants from any player.',
+        description: 'Raise temperature 3 steps and gain 4 steel.',
         renderData: CardRenderer.builder((b) => {
           b.temperature(3).br;
           b.steel(4).br;
-          b.minus().plants(-8, {all});
         }),
       },
     });

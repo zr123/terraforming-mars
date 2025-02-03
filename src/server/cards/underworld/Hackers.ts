@@ -26,18 +26,11 @@ export class Hackers extends Card implements IProjectCard {
         cardNumber: 'UX01',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
-            pb.minus().megacredits(2, {all}).br;
             pb.plus().megacredits(1).slash().corruption();
           });
         }),
-        description: 'Requires 2 corruption. Decrease any M€ production 2 steps. Increase your M€ production 1 step for every unit of corruption you have.',
+        description: 'Requires 2 corruption. Increase your M€ production 1 step for every unit of corruption you have.',
       },
     });
-  }
-
-  public override bespokePlay(player: IPlayer) {
-    player.game.defer(
-      new DecreaseAnyProduction(player, Resource.MEGACREDITS, {count: 2, stealing: true}));
-    return undefined;
   }
 }

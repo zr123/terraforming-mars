@@ -19,7 +19,6 @@ export class MetallicAsteroid extends Card implements IProjectCard {
       behavior: {
         stock: {titanium: 1},
         global: {temperature: 1},
-        removeAnyPlants: 4,
         tile: {
           type: TileType.METALLIC_ASTEROID,
           on: 'land',
@@ -34,7 +33,7 @@ export class MetallicAsteroid extends Card implements IProjectCard {
           b.minus().plants(4, {digit, all});
           b.tile(TileType.METALLIC_ASTEROID, false, true);
         }),
-        description: 'Raise temperature 1 step and gain 1 titanium. Remove up to 4 plants from any player. Place this tile which grants an ADJACENCY BONUS of 1 titanium.',
+        description: 'Raise temperature 1 step and gain 1 titanium. Place this tile which grants an ADJACENCY BONUS of 1 titanium.',
       },
     });
   }
