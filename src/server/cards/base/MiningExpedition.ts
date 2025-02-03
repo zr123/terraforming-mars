@@ -3,7 +3,6 @@ import {CardType} from '../../../common/cards/CardType';
 import {Card} from '../Card';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 
 export class MiningExpedition extends Card implements IProjectCard {
   constructor() {

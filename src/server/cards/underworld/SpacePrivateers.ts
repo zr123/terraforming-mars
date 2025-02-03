@@ -5,7 +5,6 @@ import {IProjectCard} from '../IProjectCard';
 import {CardResource} from '../../../common/CardResource';
 import {CardType} from '../../../common/cards/CardType';
 import {Card} from '../Card';
-import {all} from '../Options';
 import {IActionCard} from '../ICard';
 import {IPlayer} from '../../IPlayer';
 import {PlayerInput} from '../../PlayerInput';

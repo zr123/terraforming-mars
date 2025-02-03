@@ -25,7 +25,7 @@ export class AncientShipyards extends Card {
         cardNumber: 'M19',
         renderData: CardRenderer.builder((b) => {
           b.action('Gain 2 M€ for each player and add a resource cube here.', (eb) => {
-            eb.empty().megacredits(2, {all}).asterix().colon().resource(CardResource.RESOURCE_CUBE);
+            eb.empty().startAction.megacredits(2, {all}).asterix().colon().resource(CardResource.RESOURCE_CUBE);
           }).br.br;
           b.minus().titanium(3);
         }),
@@ -38,13 +38,7 @@ export class AncientShipyards extends Card {
   }
 
   public action(player: IPlayer) {
-    const game = player.game;
-    for (const target of player.getOpponents()) {
-      player.stock.add(Resource.MEGACREDITS, 2);
-    }
-    if (game.isSoloMode()) {
-      player.stock.add(Resource.MEGACREDITS, 2);
-    }
+    player.stock.add(Resource.MEGACREDITS, 2 * player.getOpponents().length);
     player.addResourceTo(this, 1);
     return undefined;
   }

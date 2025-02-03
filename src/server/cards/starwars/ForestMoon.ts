@@ -6,7 +6,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {all} from '../Options';
 import {CardResource} from '../../../common/CardResource';
-import {Resource} from '../../../common/Resource';
 
 export class ForestMoon extends Card implements IProjectCard {
   constructor() {

@@ -4,7 +4,6 @@ import {Card} from '../Card';
 import {CardType} from '../../../common/cards/CardType';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../../cards/render/CardRenderer';
-import {all} from '../Options';
 
 export class BigAsteroid extends Card implements IProjectCard {
   constructor() {

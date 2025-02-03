@@ -5,7 +5,6 @@ import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 import {IPlayer} from '../../IPlayer';
 import {SelectSpace} from '../../inputs/SelectSpace';
-import {Resource} from '../../../common/Resource';
 
 export class SubnauticPirates extends Card implements IProjectCard {
   constructor() {
@@ -48,7 +47,7 @@ export class SubnauticPirates extends Card implements IProjectCard {
           }
         }
 
-        set.forEach((target) => {
+        set.forEach(() => {
           player.megaCredits += 6;
         });
         return undefined;

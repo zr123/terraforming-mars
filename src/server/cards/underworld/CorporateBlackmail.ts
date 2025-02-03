@@ -4,14 +4,7 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 import {IPlayer} from '../../IPlayer';
-import {SelectPlayer} from '../../inputs/SelectPlayer';
-import {UnderworldExpansion} from '../../underworld/UnderworldExpansion';
-import {OrOptions} from '../../inputs/OrOptions';
-import {SelectOption} from '../../inputs/SelectOption';
 import {Resource} from '../../../common/Resource';
-import {message} from '../../../server/logs/MessageBuilder';
-import {Size} from '../../../common/cards/render/Size';
-import {all} from '../Options';
 
 
 export class CorporateBlackmail extends Card implements IProjectCard {

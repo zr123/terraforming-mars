@@ -4,7 +4,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardType} from '../../../common/cards/CardType';
 import {PartyName} from '../../../common/turmoil/PartyName';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 
 export class AerialLenses extends Card implements IProjectCard {
   constructor() {

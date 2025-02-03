@@ -1,14 +1,9 @@
 import {IProjectCard} from '../IProjectCard';
-import {IPlayer} from '../../IPlayer';
 import {Card} from '../Card';
 import {CardType} from '../../../common/cards/CardType';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Tag} from '../../../common/cards/Tag';
-import {all} from '../Options';
-import {RemoveResources} from '../../deferredActions/RemoveResources';
-import {Resource} from '../../../common/Resource';
-import {Priority} from '../../../server/deferredActions/Priority';
 
 export class SmallComet extends Card implements IProjectCard {
   constructor() {

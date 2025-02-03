@@ -2,14 +2,10 @@ import {IProjectCard} from '../IProjectCard';
 import {CardType} from '../../../common/cards/CardType';
 import {IPlayer} from '../../IPlayer';
 import {CardName} from '../../../common/cards/CardName';
-import {Resource} from '../../../common/Resource';
 import {CardResource} from '../../../common/CardResource';
 import {RemoveResourcesFromCard} from '../../deferredActions/RemoveResourcesFromCard';
-import {StealResources} from '../../deferredActions/StealResources';
 import {Card} from '../Card';
-import {Size} from '../../../common/cards/render/Size';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 
 export class AirRaid extends Card implements IProjectCard {
   constructor() {

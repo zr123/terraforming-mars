@@ -46,15 +46,8 @@ export class Monopoly extends Card implements IProjectCard {
       this.availableProductions(player))
       .andThen((unitKey) => {
         const resource = Units.ResourceMap[unitKey];
-        if (player.game.isSoloMode()) {
-          player.production.add(resource, 1, {log: true});
-          player.resolveInsuranceInSoloGame();
-          return undefined;
-        }
-        for (const target of player.getOpponents()) {
-          player.production.add(resource, 1, {log: false});
-          return undefined;
-        }
+        player.production.add(resource, player.getOpponents().length, {log: true});
+        player.resolveInsuranceInSoloGame();
         return undefined;
       });
   }
