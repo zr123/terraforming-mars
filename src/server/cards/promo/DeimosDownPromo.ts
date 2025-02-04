@@ -5,7 +5,7 @@ import {CardType} from '../../../common/cards/CardType';
 import {CardName} from '../../../common/cards/CardName';
 import {TileType} from '../../../common/TileType';
 import {CardRenderer} from '../render/CardRenderer';
-import {all, digit} from '../Options';
+import {digit} from '../Options';
 import {AdjacencyBonus} from '../../ares/AdjacencyBonus';
 
 export class DeimosDownPromo extends Card implements IProjectCard {
@@ -17,7 +17,7 @@ export class DeimosDownPromo extends Card implements IProjectCard {
       renderData: CardRenderer.builder((b) => {
         b.temperature(3).br;
         b.tile(TileType.DEIMOS_DOWN, true).asterix().br;
-        b.steel(4, {digit}).nbsp.minus().plants(-6, {all});
+        b.steel(4, {digit});
       }),
       description: 'Raise temperature 3 steps and gain 4 steel. Place this tile ADJACENT TO no other city tile.',
     },
