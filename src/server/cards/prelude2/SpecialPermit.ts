@@ -25,7 +25,7 @@ export class SpecialPermit extends Card implements IProjectCard {
         cardNumber: 'P82',
         description: 'Requires that Greens are ruling or that you have 2 delegates there. Gain 4 plants.',
         renderData: CardRenderer.builder((b) => {
-          b.text('  ', Size.MEDIUM, true).plants(4, {all, digit});
+          b.text('Gain', Size.MEDIUM, true).plants(4, {all, digit});
         }),
       },
     });
