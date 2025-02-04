@@ -15,8 +15,7 @@ describe('TollStation', function() {
   beforeEach(() => {
     card = new TollStation();
     [game, player, anotherPlayer] = testGame(2, {coloniesExtension: true});
-    //cast(card.play(player), undefined);
-
+    // cast(card.play(player), undefined);
   });
 
   it('Should give credits on trade', function() {
