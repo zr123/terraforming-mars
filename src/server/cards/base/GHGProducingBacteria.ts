@@ -27,7 +27,7 @@ export class GHGProducingBacteria extends ActionCard {
               // LogHelper.logRemoveResource(player, this, 2, 'raise temperature 1 step');
             },
             {
-	      addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
+              addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
               title: 'Add 1 microbe to any card',
             },
           ],

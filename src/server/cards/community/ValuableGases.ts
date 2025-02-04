@@ -24,7 +24,7 @@ export class ValuableGases extends PreludeCard implements IProjectCard {
         cardNumber: 'Y06',
         renderData: CardRenderer.builder((b) => {
           b.megacredits(6).br.br;
-	  b.text('play', Size.MEDIUM, true).cards(1, {secondaryTag: AltSecondaryTag.FLOATER}).asterix().br;
+          b.text('play', Size.MEDIUM, true).cards(1, {secondaryTag: AltSecondaryTag.FLOATER}).asterix().br;
           b.resource(CardResource.FLOATER, {amount: 6, digit});
         }),
         description: 'Gain 6 M€. Play a Floater card from your hand and add 6 floaters to it.',

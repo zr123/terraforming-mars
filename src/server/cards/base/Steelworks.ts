@@ -24,10 +24,10 @@ export class Steelworks extends ActionCard implements IProjectCard {
           b.action('Spend 3 energy', (eb) => {
             eb.energy(3).startAction.empty();
           });
-	  b.br;
-	  b.steel(5);
+          b.br;
+          b.steel(5);
         }),
-	description: 'to gain 5 steel.',
+        description: 'to gain 5 steel.',
       },
     });
   }
