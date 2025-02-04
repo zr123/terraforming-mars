@@ -41,4 +41,3 @@ export class HiredRaiders extends Card implements IProjectCard {
     );
   }
 }
-

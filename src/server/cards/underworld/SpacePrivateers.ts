@@ -27,7 +27,7 @@ export class SpacePrivateers extends Card implements IProjectCard, IActionCard {
 
       metadata: {
         cardNumber: 'U50',
-        renderData: CardRenderer.builder((b) => {;
+        renderData: CardRenderer.builder((b) => {
           b.action(
             'Gain 10 M€ and remove 1 fighter from this card.',
             (eb) => eb.megacredits(8).startEffect.minus().resource(CardResource.FIGHTER)).br;

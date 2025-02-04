@@ -31,5 +31,4 @@ export class AsteroidMiningConsortium extends Card implements IProjectCard {
       },
     });
   }
-
 }

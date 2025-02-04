@@ -18,7 +18,7 @@ export class AsteroidHollowing extends ActionCard implements IProjectCard {
       action: {
         spend: {titanium: 1},
         production: {megacredits: 1},
-      addResourcesToAnyCard: {type: CardResource.ASTEROID, count: 1},
+        addResourcesToAnyCard: {type: CardResource.ASTEROID, count: 1},
       },
 
       victoryPoints: {resourcesHere: {}, per: 2},

@@ -31,7 +31,6 @@ export class HiredRaiders extends Card implements IProjectCard {
     player.game.log('${0} stole ${1} M€ from the neutral player', (b) =>
       b.player(player).number(amount),
     );
-    
     return undefined;
   }
 }

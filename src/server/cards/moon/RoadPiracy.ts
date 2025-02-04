@@ -37,14 +37,14 @@ export class RoadPiracy extends Card implements IProjectCard {
   }
 
   public do(player: IPlayer) {
-    const   Steel = message('Gain ${0} steel', (b) => b.number(6));
-    const   Titanium = message('Gain ${0} titanium', (b) => b.number(4));
+    const Steel = message('Gain ${0} steel', (b) => b.number(6));
+    const Titanium = message('Gain ${0} titanium', (b) => b.number(4));
     return new OrOptions(
-      new SelectOption(  Steel, 'Gain steel').andThen(() => {
+      new SelectOption(Steel, 'Gain steel').andThen(() => {
         player.steel += 6;
         return undefined;
       }),
-      new SelectOption(  Titanium, 'Gain titanium').andThen(() => {
+      new SelectOption(Titanium, 'Gain titanium').andThen(() => {
         player.titanium += 4;
         return undefined;
       }),
