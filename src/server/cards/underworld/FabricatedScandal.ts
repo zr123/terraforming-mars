@@ -11,7 +11,7 @@ export class FabricatedScandal extends Card implements IProjectCard {
     super({
       name: CardName.FABRICATED_SCANDAL,
       type: CardType.EVENT,
-      cost: 15,
+      cost: 12,
 
       behavior: {
         underworld: {corruption: 1},
@@ -21,23 +21,15 @@ export class FabricatedScandal extends Card implements IProjectCard {
         cardNumber: 'U13',
         renderData: CardRenderer.builder((b) => {
           b.corruption().br;
-          b.text('most').tr(1, {all}).colon().minus().tr(1).br;
           b.text('least').tr(1, {all}).colon().plus().tr(1).br;
         }),
-        description: 'Gain 1 corruption. The players with the highest TR lose 1 TR. ' +
-          'Then the players with the lowest TR gain 1 TR, if possible.',
+        description: 'Gain 1 corruption. The players with the lowest TR gain 1 TR, if possible.',
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
     const game = player.game;
-    const highestTR = Math.max(...game.getPlayers().map(((p) => p.getTerraformRating())));
-    game.getPlayers().forEach((p) => {
-      if (p.getTerraformRating() === highestTR) {
-        p.decreaseTerraformRating(1, {log: true});
-      }
-    });
 
     const lowestTR = Math.min(...game.getPlayers().map(((p) => p.getTerraformRating())));
     game.getPlayers().forEach((p) => {
