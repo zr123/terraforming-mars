@@ -3,7 +3,6 @@ import {IProjectCard} from '../IProjectCard';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
-import {all} from '../Options';
 
 export class Deepnuking extends Card implements IProjectCard {
   constructor() {
@@ -20,7 +19,7 @@ export class Deepnuking extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U06',
         renderData: CardRenderer.builder((b) => {
-          b.excavate(2).minus().plants(3, {all});
+          b.excavate(2);
         }),
         description: 'Excavate 2 underground resources.',
       },

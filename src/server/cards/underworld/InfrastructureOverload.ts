@@ -4,8 +4,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 import {Tag} from '../../../common/cards/Tag';
-import {all} from '../Options';
-import {Resource} from '../../../common/Resource';
 
 export class InfrastructureOverload extends Card implements IProjectCard {
   constructor() {
@@ -15,20 +13,19 @@ export class InfrastructureOverload extends Card implements IProjectCard {
       cost: 3,
       tags: [Tag.POWER],
 
-      requirements: {corruption: 2},
-
       victoryPoints: -1,
 
       behavior: {
-        decreaseAnyProduction: {count: 2, type: Resource.ENERGY},
+        production: {energy: -1},
+        underworld: {corruption: 2},
       },
 
       metadata: {
         cardNumber: 'U68',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.text('-2').energy(1, {all}));
+          b.production((pb) => pb.text('-1').energy(1));
         }),
-        description: 'Requires 2 corruption. Reduce any energy production 2 steps.',
+        description: 'Reduce energy production 1 step. Gain 1 corruption.',
       },
     });
   }

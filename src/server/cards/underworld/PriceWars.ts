@@ -4,7 +4,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
 import {IPlayer} from '../../IPlayer';
-import {all} from '../Options';
 
 export class PriceWars extends Card implements IProjectCard {
   constructor() {
@@ -25,11 +24,9 @@ export class PriceWars extends Card implements IProjectCard {
         hasExternalHelp: true,
         renderData: CardRenderer.builder((b) => {
           b.steel(1).titanium(1).colon().plus().megacredits(1).asterix().br;
-          b.steel(1, {all}).titanium(1, {all}).colon().minus().megacredits(1, {all}).asterix().br;
         }),
         description: 'Requires 2 corruption. Until the end of this generation, ' +
-          'your steel and titanium are worth 1 more M€ each, ' +
-          'and steel and titanium for other players is worth 1 M€ less.',
+          'your steel and titanium are worth 1 more M€ each.',
       },
     });
   }
@@ -37,27 +34,13 @@ export class PriceWars extends Card implements IProjectCard {
   public generationUsed: number | undefined = undefined;
 
   private increase(player: IPlayer) {
-    for (const p of player.game.getPlayersInGenerationOrder()) {
-      if (p === player) {
-        p.increaseSteelValue();
-        p.increaseTitaniumValue();
-      } else {
-        p.decreaseSteelValue();
-        p.decreaseTitaniumValue();
-      }
-    }
+    player.increaseSteelValue();
+    player.increaseTitaniumValue();
   }
 
   private decrease(player: IPlayer) {
-    for (const p of player.game.getPlayersInGenerationOrder()) {
-      if (p === player) {
-        p.decreaseSteelValue();
-        p.decreaseTitaniumValue();
-      } else {
-        p.increaseSteelValue();
-        p.increaseTitaniumValue();
-      }
-    }
+    player.decreaseSteelValue();
+    player.decreaseTitaniumValue();
   }
 
   public override bespokePlay(player: IPlayer) {

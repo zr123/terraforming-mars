@@ -53,6 +53,9 @@ COPY --from=builder /usr/src/app/build ./build
 
 COPY --from=builder /usr/src/app/assets ./assets
 
+# create sqlite dir for local testing
+RUN mkdir ./db
+
 # Run command.
 
 EXPOSE 8080

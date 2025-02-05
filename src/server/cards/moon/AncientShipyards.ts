@@ -6,7 +6,6 @@ import {CardResource} from '../../../common/CardResource';
 import {Resource} from '../../../common/Resource';
 import {CardRenderer} from '../render/CardRenderer';
 import {Card} from '../Card';
-import {all} from '../Options';
 
 export class AncientShipyards extends Card {
   constructor() {
@@ -25,7 +24,7 @@ export class AncientShipyards extends Card {
         cardNumber: 'M19',
         renderData: CardRenderer.builder((b) => {
           b.action('Gain 2 M€ for each player and add a resource cube here.', (eb) => {
-            eb.empty().startAction.megacredits(2, {all}).asterix().colon().resource(CardResource.RESOURCE_CUBE);
+            eb.empty().startAction.megacredits(2).asterix().colon().resource(CardResource.RESOURCE_CUBE);
           }).br.br;
           b.minus().titanium(3);
         }),
