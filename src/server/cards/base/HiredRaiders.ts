@@ -18,9 +18,9 @@ export class HiredRaiders extends Card implements IProjectCard {
       metadata: {
         cardNumber: '124',
         renderData: CardRenderer.builder((b) => {
-          b.steel(2, {all}).br;
+          b.steel(2).br;
           b.or().br;
-          b.megacredits(3, {all});
+          b.megacredits(3);
         }),
         description: 'Gain up to 2 steel, or 3 M€.',
       },
