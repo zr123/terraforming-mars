@@ -6,7 +6,6 @@ import {OrOptions} from '../../inputs/OrOptions';
 import {SelectOption} from '../../inputs/SelectOption';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
-import {Size} from '../../../common/cards/render/Size';
 import {all} from '../Options';
 
 export class HiredRaiders extends Card implements IProjectCard {
@@ -19,9 +18,9 @@ export class HiredRaiders extends Card implements IProjectCard {
       metadata: {
         cardNumber: '124',
         renderData: CardRenderer.builder((b) => {
-          b.text('Copy', Size.MEDIUM, true).steel(2, {all}).br;
+          b.steel(2, {all}).br;
           b.or().br;
-          b.text('Copy', Size.MEDIUM, true).megacredits(3, {all});
+          b.megacredits(3, {all});
         }),
         description: 'Gain up to 2 steel, or 3 M€.',
       },

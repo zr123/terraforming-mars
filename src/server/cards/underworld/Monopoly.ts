@@ -5,7 +5,6 @@ import {IPlayer} from '../../IPlayer';
 import {CardName} from '../../../common/cards/CardName';
 import {SelectResource} from '../../inputs/SelectResource';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 import {Units} from '../../../common/Units';
 
 export class Monopoly extends Card implements IProjectCard {
@@ -20,7 +19,7 @@ export class Monopoly extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U65',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.wild(1, {all})).br;
+          b.production((pb) => pb.wild(1)).br;
         }),
         description: 'Requires 3 corruption. Choose a standard production type. ' +
           'Gain up to 1 unit of that production for EACH OTHER player.',
