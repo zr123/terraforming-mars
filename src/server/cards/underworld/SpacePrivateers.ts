@@ -29,7 +29,7 @@ export class SpacePrivateers extends Card implements IProjectCard, IActionCard {
         cardNumber: 'U50',
         renderData: CardRenderer.builder((b) => {
           b.action(
-            'Gain 10 M€ and remove 1 fighter from this card.',
+            'Gain 8 M€ and remove 1 fighter from this card.',
             (eb) => eb.megacredits(8).startEffect.minus().resource(CardResource.FIGHTER)).br;
           b.resource(CardResource.FIGHTER, 3);
         }),
@@ -46,7 +46,7 @@ export class SpacePrivateers extends Card implements IProjectCard, IActionCard {
     return this.resourceCount > 0;
   }
   action(player: IPlayer): PlayerInput | undefined {
-    player.stock.add(Resource.MEGACREDITS, 10, {log: true});
+    player.stock.add(Resource.MEGACREDITS, 8, {log: true});
     this.resourceCount--;
     player.resolveInsuranceInSoloGame();
     return undefined;
