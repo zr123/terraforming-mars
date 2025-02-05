@@ -6,7 +6,6 @@ import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
 import {all} from '../Options';
 import {CardResource} from '../../../common/CardResource';
-import {Resource} from '../../../common/Resource';
 
 export class ForestMoon extends Card implements IProjectCard {
   constructor() {
@@ -19,16 +18,15 @@ export class ForestMoon extends Card implements IProjectCard {
       victoryPoints: 1,
 
       behavior: {
-        decreaseAnyProduction: {count: 2, type: Resource.ENERGY},
         addResourcesToAnyCard: {count: 1, type: CardResource.ANIMAL},
       },
 
       metadata: {
         cardNumber: 'SW06',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.minus().energy(2, {all})).resource(CardResource.ANIMAL);
+          b.resource(CardResource.ANIMAL);
         }),
-        description: 'Requires any 4 greeneries on Mars. Decrease any energy production 2 steps. Add an animal to any card.',
+        description: 'Requires any 4 greeneries on Mars. Add an animal to any card.',
       },
     });
   }

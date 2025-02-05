@@ -33,7 +33,7 @@ export class DysonScreens extends ActionCard {
         renderData: CardRenderer.builder((b) => {
           b.action(
             'Pay 1 titanium to raise your heat and energy production 1 step each.',
-            (ab) => ab.titanium(2, {digit}).startAction.production((pb) => pb.heat(1).energy(1))).br;
+            (ab) => ab.titanium(1, {digit}).startAction.production((pb) => pb.heat(1).energy(1))).br;
           b.temperature(1).cards(1, {size: Size.SMALL}).city({size: Size.SMALL}).asterix();
           b.production((pb) => pb.heat(2, {digit}).energy(2, {digit}));
         }),

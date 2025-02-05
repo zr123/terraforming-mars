@@ -166,9 +166,9 @@ export abstract class Colony implements IColony {
     // Toll Station
     const players = player.game.getPlayers();
     players.forEach((p) => {
-        if (p.cardIsInEffect(CardName.TOLL_STATION)) {
-          p.stock.add(Resource.MEGACREDITS, 1, {log: true});
-        }
+      if (p.cardIsInEffect(CardName.TOLL_STATION)) {
+        p.stock.add(Resource.MEGACREDITS, 1, {log: true});
+      }
     });
 
     // !== false because default is true.

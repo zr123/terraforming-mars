@@ -27,7 +27,7 @@ export class Thermophiles extends ActionCard implements IActionCard {
           {
             // Remove "Add a microbe to this card"
             title: 'Select a card to add 1 microbe',
-	    addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
+            addResourcesToAnyCard: {type: CardResource.MICROBE, count: 1},
           }],
         },
       },

@@ -1,7 +1,9 @@
 import {expect} from 'chai';
 import {TollStation} from '../../../src/server/cards/base/TollStation';
-import {cast, testGame} from '../../TestingUtils';
+import {testGame} from '../../TestingUtils';
 import {Ceres} from '../../../src/server/colonies/Ceres';
+import {TestPlayer} from '../../TestPlayer';
+import {IGame} from '../../../src/server/IGame';
 
 describe('TollStation', function() {
   let card: TollStation;
@@ -13,8 +15,7 @@ describe('TollStation', function() {
   beforeEach(() => {
     card = new TollStation();
     [game, player, anotherPlayer] = testGame(2, {coloniesExtension: true});
-    //cast(card.play(player), undefined);
-
+    // cast(card.play(player), undefined);
   });
 
   it('Should give credits on trade', function() {
