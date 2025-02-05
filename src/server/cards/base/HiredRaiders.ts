@@ -6,7 +6,6 @@ import {OrOptions} from '../../inputs/OrOptions';
 import {SelectOption} from '../../inputs/SelectOption';
 import {CardName} from '../../../common/cards/CardName';
 import {CardRenderer} from '../render/CardRenderer';
-import {all} from '../Options';
 
 export class HiredRaiders extends Card implements IProjectCard {
   constructor() {
