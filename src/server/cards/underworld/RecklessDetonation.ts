@@ -26,5 +26,4 @@ export class RecklessDetonation extends Card implements IProjectCard {
       },
     });
   }
-
 }
