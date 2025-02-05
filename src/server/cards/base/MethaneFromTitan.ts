@@ -15,10 +15,10 @@ export class MethaneFromTitan extends Card implements IProjectCard {
       victoryPoints: 2,
 
       behavior: {
-        production: {heat: 2, plants: 2},
+        production: {heat: 3, plants: 3},
       },
 
-      requirements: {oxygen: 2},
+      requirements: {oxygen: 1},
       metadata: {
         description: 'Requires 2% oxygen. Increase your heat production 2 steps and your plant production 2 steps.',
         cardNumber: '018',
