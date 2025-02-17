@@ -14,6 +14,10 @@ export class EnergyTapping extends Card implements IProjectCard {
       cost: 3,
       victoryPoints: -1,
 
+      behavior: {
+        production: {energy: 1},
+      },
+
       metadata: {
         cardNumber: '201',
         description: 'Increase your energy production 1 step.',
