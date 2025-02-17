@@ -15,6 +15,8 @@ export class LawSuit extends Card implements IProjectCard {
       tags: [Tag.EARTH],
       cost: 2,
 
+      requirements: {corruption: 1},
+
       metadata: {
         cardNumber: 'X06',
         renderData: CardRenderer.builder((b) => {
