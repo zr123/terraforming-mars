@@ -1,5 +1,4 @@
 import {GlobalEventName} from '../../common/turmoil/globalEvents/GlobalEventName';
-import {LawSuit} from '../cards/promo/LawSuit';
 import {IPlayer} from '../IPlayer';
 import {Resource} from '../../common/Resource';
 import {Units} from '../../common/Units';
@@ -57,10 +56,6 @@ export class Production {
     }
 
     const from = options?.from;
-    if (typeof(from) === 'object') {
-      LawSuit.resourceHook(this.player, resource, delta, from);
-    }
-
     // Mons Insurance hook
     if (options?.from !== undefined && delta < 0 && (typeof(from) === 'object' && from.id !== this.player.id)) {
       this.player.resolveInsurance();
