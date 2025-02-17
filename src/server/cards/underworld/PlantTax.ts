@@ -25,16 +25,16 @@ export class PlantTax extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U67',
         renderData: CardRenderer.builder((b) => {
-          b.minus().plants(2).asterix().corruption().asterix();
+          b.minus().plants(2).asterix().corruption(2).asterix();
         }),
-        description: 'Spend 2 plants. Gain 1 corruption DURING THE PRODUCTION PHASE OF THIS GENERATION.',
+        description: 'Spend 2 plants. Gain 2 corruption DURING THE PRODUCTION PHASE OF THIS GENERATION.',
       },
     });
   }
 
   public onProductionPhase(player: IPlayer) {
     if (this.generationUsed === player.game.generation) {
-      UnderworldExpansion.gainCorruption(player, 1, {log: true});
+      UnderworldExpansion.gainCorruption(player, 2, {log: true});
     }
     return undefined;
   }
