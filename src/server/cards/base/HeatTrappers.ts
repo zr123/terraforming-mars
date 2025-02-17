@@ -22,7 +22,9 @@ export class HeatTrappers extends Card implements IProjectCard {
       metadata: {
         cardNumber: '178',
         renderData: CardRenderer.builder((b) => {
-          b.minus().heat(1).production((pb) => {pb.energy(1);});
+          b.minus().heat(1).production((pb) => {
+            pb.energy(1);
+          });
         }),
         description: 'Spend 1 heat. Increase your energy production 1 step.',
       },
