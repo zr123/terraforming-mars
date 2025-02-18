@@ -21,7 +21,7 @@ export class InfrastructureOverload extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U68',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.text('-').energy(1)).corruption(2);
+          b.production((pb) => pb.minus().energy(1)).corruption(2);
         }),
         description: 'Reduce energy production 1 step. Gain 2 corruption.',
       },
