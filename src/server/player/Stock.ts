@@ -1,6 +1,5 @@
 // import {CardName} from '../../common/cards/CardName';
 // import {GlobalEventName} from '../../common/turmoil/globalEvents/GlobalEventName';
-import {LawSuit} from '../cards/promo/LawSuit';
 import {IPlayer, ResourceSource, isIPlayer} from '../IPlayer';
 import {Resource} from '../../common/Resource';
 import {Units} from '../../common/Units';
@@ -132,7 +131,6 @@ export class Stock {
 
     const from = options?.from;
     if (isIPlayer(from)) {
-      LawSuit.resourceHook(this.player, resource, delta, from);
       CrashSiteCleanup.resourceHook(this.player, resource, delta, from);
     }
 

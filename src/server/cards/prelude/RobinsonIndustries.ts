@@ -20,7 +20,7 @@ export class RobinsonIndustries extends CorporationCard implements IActionCard {
         description: 'You start with 50 M€.',
         renderData: CardRenderer.builder((b) => {
           b.br.br.br;
-          b.megacredits(47);
+          b.megacredits(50);
           b.corpBox('action', (ce) => {
             ce.action('Spend 3 M€ to increase (one of) your LOWEST production 1 step.', (eb) => {
               eb.megacredits(3).startAction.production((pb) => pb.wild(1).asterix());
@@ -31,7 +31,7 @@ export class RobinsonIndustries extends CorporationCard implements IActionCard {
     });
   }
   public canAct(player: IPlayer): boolean {
-    return player.canAfford(4);
+    return player.canAfford(3);
   }
 
   public action(player: IPlayer) {

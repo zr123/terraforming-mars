@@ -10,10 +10,8 @@ export class InfrastructureOverload extends Card implements IProjectCard {
     super({
       name: CardName.INFRASTRUCTURE_OVERLOAD,
       type: CardType.EVENT,
-      cost: 3,
+      cost: 0,
       tags: [Tag.POWER],
-
-      victoryPoints: -1,
 
       behavior: {
         production: {energy: -1},
@@ -23,9 +21,9 @@ export class InfrastructureOverload extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U68',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => pb.text('-1').energy(1));
+          b.production((pb) => pb.minus().energy(1)).corruption(2);
         }),
-        description: 'Reduce energy production 1 step. Gain 1 corruption.',
+        description: 'Reduce energy production 1 step. Gain 2 corruption.',
       },
     });
   }
