@@ -17,6 +17,10 @@ export class LawSuit extends Card implements IProjectCard {
 
       requirements: {corruption: 1},
 
+      behavior: {
+        underworld: {markThisGeneration: {}},
+      },
+
       metadata: {
         cardNumber: 'X06',
         renderData: CardRenderer.builder((b) => {
