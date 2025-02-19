@@ -11,9 +11,10 @@ export class HeatTrappers extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.HEAT_TRAPPERS,
       tags: [Tag.POWER, Tag.BUILDING],
-      cost: 6,
-      victoryPoints: -1,
+      cost: 2,
+      victoryPoints: 0,
 
+      reserveUnits: {heat: 1},
       behavior: {
         production: {energy: 1},
       },
@@ -21,11 +22,11 @@ export class HeatTrappers extends Card implements IProjectCard {
       metadata: {
         cardNumber: '178',
         renderData: CardRenderer.builder((b) => {
-          b.production((pb) => {
-            pb.plus().energy(1);
+          b.minus().heat(1).production((pb) => {
+            pb.energy(1);
           });
         }),
-        description: 'Increase your energy production 1 step.',
+        description: 'Spend 1 heat. Increase your energy production 1 step.',
       },
     });
   }
