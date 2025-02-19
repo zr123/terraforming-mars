@@ -11,8 +11,10 @@ export class EnergyTapping extends Card implements IProjectCard {
       type: CardType.AUTOMATED,
       name: CardName.ENERGY_TAPPING,
       tags: [Tag.POWER],
-      cost: 3,
+      cost: 0,
       victoryPoints: -1,
+
+      requirements: {corruption: 1},
 
       behavior: {
         production: {energy: 1},
@@ -20,7 +22,7 @@ export class EnergyTapping extends Card implements IProjectCard {
 
       metadata: {
         cardNumber: '201',
-        description: 'Increase your energy production 1 step.',
+        description: 'Requires 1 corruption. Increase your energy production 1 step.',
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.energy(1);
