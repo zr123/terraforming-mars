@@ -26,8 +26,8 @@ export class Predators extends Card implements IProjectCard, IActionCard {
       metadata: {
         cardNumber: '024',
         renderData: CardRenderer.builder((b) => {
-          b.action('Remove 1 animal from any card and add it to this card.', (eb) => {
-            eb.resource(CardResource.ANIMAL, {all}).startAction.resource(CardResource.ANIMAL);
+          b.action('Remove 1 animal from any of your cards and add 2 to this card.', (eb) => {
+            eb.resource(CardResource.ANIMAL, {all}).startAction.resource(CardResource.ANIMAL).resource(CardResource.ANIMAL);
           }).br;
           b.vpText('1 VP per animal on this card.');
         }),
@@ -37,16 +37,15 @@ export class Predators extends Card implements IProjectCard, IActionCard {
   }
 
   public canAct(player: IPlayer): boolean {
-    if (player.game.isSoloMode()) return true;
-    return RemoveResourcesFromCard.getAvailableTargetCards(player, CardResource.ANIMAL).length > 0;
+    return RemoveResourcesFromCard.getAvailableTargetCards(player, CardResource.ANIMAL, 'self').length > 0;
   }
 
   public action(player: IPlayer) {
     player.game.defer(
-      new RemoveResourcesFromCard(player, CardResource.ANIMAL)
+      new RemoveResourcesFromCard(player, CardResource.ANIMAL, 1, {source: 'self', blockable: false})
         .andThen((response) => {
           if (response.proceed) {
-            player.game.defer(new AddResourcesToCard(player, CardResource.ANIMAL, {filter: (c) => c.name === this.name}));
+            player.game.defer(new AddResourcesToCard(player, CardResource.ANIMAL, {count: 2, filter: (c) => c.name === this.name}));
           }
         }));
     return undefined;
