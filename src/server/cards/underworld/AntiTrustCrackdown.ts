@@ -21,22 +21,15 @@ export class AntiTrustCrackdown extends Card implements IProjectCard {
       metadata: {
         cardNumber: 'U64',
         renderData: CardRenderer.builder((b) => {
-          b.text('-2').corruption(1).asterix().br;
-          b.plainText('Requires that you have more than 2 corruption. Lose 2 corruption.');
+          b.minus().corruption(2).br;
+          b.plainText('Requires that you have 2 or more corruption. Lose 2 corruption.');
         }),
       },
     });
   }
 
   public override bespokePlay(player: IPlayer) {
-    player.game.getPlayersInGenerationOrder().forEach((p) => {
-      if (p !== player) {
-        const loss = Math.min(p.underworldData.corruption, 2);
-        if (loss > 0) {
-          UnderworldExpansion.loseCorruption(p, loss, {log: true});
-        }
-      }
-    });
+    UnderworldExpansion.loseCorruption(player, 2, {log: true});
     return undefined;
   }
 }
