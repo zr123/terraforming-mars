@@ -12,6 +12,10 @@ export class GreatEscarpmentConsortium extends Card implements IProjectCard {
       name: CardName.GREAT_ESCARPMENT_CONSORTIUM,
       cost: 6,
 
+      behavior: {
+        production: {steel: 1},
+      },
+
       requirements: {production: Resource.STEEL, count: 1},
       metadata: {
         cardNumber: '061',
