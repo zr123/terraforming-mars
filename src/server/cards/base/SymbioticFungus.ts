@@ -27,7 +27,7 @@ export class SymbioticFungus extends ActionCard implements IProjectCard {
             eb.empty().startAction.resource(CardResource.MICROBE).asterix();
           });
         }),
-        description: 'Requires -14 C° or warmer.',
+        description: 'Requires -18 C° or warmer.',
       },
     });
   }
