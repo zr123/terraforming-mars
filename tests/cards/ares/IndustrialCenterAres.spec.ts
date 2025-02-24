@@ -31,4 +31,12 @@ describe('IndustrialCenterAres', function() {
     expect(space.tile?.tileType).to.eq(TileType.INDUSTRIAL_CENTER);
     expect(space.adjacency).to.deep.eq({bonus: [SpaceBonus.STEEL]});
   });
+
+  it('Should act', function() {
+    player.megaCredits = 7;
+    const action = card.action(player);
+    cast(action, undefined);
+    game.deferredActions.runNext();
+    expect(player.megaCredits).to.eq(0);
+  });
 });

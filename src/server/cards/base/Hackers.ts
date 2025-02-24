@@ -13,7 +13,7 @@ export class Hackers extends Card implements IProjectCard {
       victoryPoints: -1,
 
       behavior: {
-        production: {energy: -1, megacredits: 2},
+        production: {energy: -1, megacredits: 3},
       },
 
       metadata: {
@@ -21,10 +21,10 @@ export class Hackers extends Card implements IProjectCard {
         renderData: CardRenderer.builder((b) => {
           b.production((pb) => {
             pb.minus().energy(1).br;
-            pb.plus().megacredits(2);
+            pb.plus().megacredits(3);
           });
         }),
-        description: 'Decrease your energy production 1 step. Increase your M€ production 2 steps.',
+        description: 'Decrease your energy production 1 step. Increase your M€ production 3 steps.',
       },
     });
   }

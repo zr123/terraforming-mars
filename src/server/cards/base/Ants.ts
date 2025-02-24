@@ -27,8 +27,8 @@ export class Ants extends Card implements IActionCard, IProjectCard {
         cardNumber: '035',
         description: 'Requires 4% oxygen.',
         renderData: CardRenderer.builder((b) => {
-          b.action('Remove 1 microbe from any card to add 1 to this card.', (eb) => {
-            eb.resource(CardResource.MICROBE, {all}).startAction.resource(CardResource.MICROBE);
+          b.action('Remove 1 microbe from any of your cards to add 2 to this card.', (eb) => {
+            eb.resource(CardResource.MICROBE, {all}).startAction.resource(CardResource.MICROBE).resource(CardResource.MICROBE);
           }).br;
           b.vpText('1 VP per 2 microbes on this card.');
         }),
@@ -37,14 +37,13 @@ export class Ants extends Card implements IActionCard, IProjectCard {
   }
 
   public canAct(player: IPlayer): boolean {
-    if (player.game.isSoloMode()) return true;
-    return RemoveResourcesFromCard.getAvailableTargetCards(player, CardResource.MICROBE).length > 0;
+    return RemoveResourcesFromCard.getAvailableTargetCards(player, CardResource.MICROBE, 'self').length > 0;
   }
 
   public action(player: IPlayer) {
-    player.game.defer(new RemoveResourcesFromCard(player, CardResource.MICROBE).andThen((response) => {
+    player.game.defer(new RemoveResourcesFromCard(player, CardResource.MICROBE, 1, {source: 'self', blockable: false}).andThen((response) => {
       if (response.proceed) {
-        player.game.defer(new AddResourcesToCard(player, CardResource.MICROBE, {filter: (c) => c.name === this.name}));
+        player.game.defer(new AddResourcesToCard(player, CardResource.MICROBE, {count: 2, filter: (c) => c.name === this.name}));
       }
     }));
     return undefined;
