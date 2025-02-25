@@ -1,4 +1,4 @@
-An Offer You Can't Refuse, Anti-trust Crackdown, Banned Delegate, Caesar, Corporate Theft, Cosmic Radiation, Crash Site Cleanup, Flooding, Private Security, Protected Habitats, Recruitment, Revolting Colonists, Sabotage, Trade Embargo (I), Virus, Vote Of No Confidence
+An Offer You Can't Refuse, Anti-trust Crackdown, Banned Delegate, Caesar, Corporate Theft, Cosmic Radiation, Crash Site Cleanup, Private Security, Protected Habitats, Recruitment, Revolting Colonists, Sabotage, Trade Embargo (I), Virus, Vote Of No Confidence
 
 add ban:
 Protected Habitats
@@ -8,3 +8,4 @@ Ants
 Hackers
 Price Wars
 Predators
+Flooding
