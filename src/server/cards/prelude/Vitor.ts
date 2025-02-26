@@ -15,7 +15,7 @@ export class Vitor extends CorporationCard {
     super({
       name: CardName.VITOR,
       tags: [Tag.EARTH],
-      startingMegaCredits: 48, // It's 45 + 3 when this corp is played
+      startingMegaCredits: 49, // It's 45 + 4 when this corp is played
       initialActionText: 'Fund an award for free',
 
       metadata: {
@@ -26,7 +26,7 @@ export class Vitor extends CorporationCard {
           b.megacredits(45).nbsp.award();
           b.corpBox('effect', (ce) => {
             ce.effect('When you play a card with a NON-NEGATIVE VP icon, including this, gain 4 M€.', (eb) => {
-              eb.vpIcon().asterix().startEffect.megacredits(3);
+              eb.vpIcon().asterix().startEffect.megacredits(4);
             });
           });
         }),
