@@ -46,7 +46,7 @@ export class PriceWars extends Card implements IProjectCard {
   public override bespokePlay(player: IPlayer) {
     this.increase(player);
     player.game.log('${0} is in effect for the rest of this generation.', (b) => b.card(this));
-    player.game.log('Steel and titanium are worth 1 M€ less, except for ${0}, whose steel and titanium are worth 1 M€ more.', (b) => b.player(player));
+    player.game.log('The steel and titanium of ${0} are worth 1 M€ more.', (b) => b.player(player));
     return undefined;
   }
 
