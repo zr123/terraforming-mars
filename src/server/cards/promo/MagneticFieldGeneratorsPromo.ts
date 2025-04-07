@@ -16,12 +16,12 @@ export class MagneticFieldGeneratorsPromo extends Card implements IProjectCard {
       cardNumber: 'X33',
       renderData: CardRenderer.builder((b) => {
         b.production((pb) => {
-          pb.minus().energy(4, {digit}).br;
+          pb.minus().energy(2, {digit}).br;
           pb.plus().plants(2);
         }).br;
         b.tr(3, {digit}).tile(TileType.MAGNETIC_FIELD_GENERATORS, true).asterix();
       }),
-      description: 'Decrease your energy production 4 steps and increase your plant production 2 steps. Raise your TR 3 steps. Place this tile.',
+      description: 'Decrease your energy production 2 steps and increase your plant production 2 steps. Raise your TR 3 steps. Place this tile.',
     },
   ) {
     super({
@@ -30,7 +30,7 @@ export class MagneticFieldGeneratorsPromo extends Card implements IProjectCard {
       tags: [Tag.BUILDING],
       cost: 22,
       behavior: {
-        production: {energy: -4, plants: 2},
+        production: {energy: -2, plants: 2},
         tr: 3,
         tile: {
           type: TileType.MAGNETIC_FIELD_GENERATORS,
