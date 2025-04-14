@@ -227,6 +227,7 @@ import {PowerPlantStandardProject} from './base/standardProjects/PowerPlantStand
 import {GreeneryStandardProject} from './base/standardProjects/GreeneryStandardProject';
 import {AsteroidStandardProject} from './base/standardProjects/AsteroidStandardProject';
 import {SellPatentsStandardProject} from './base/standardProjects/SellPatentsStandardProject';
+import {HotCoffeeStandardProject} from './base/standardProjects/HotCoffeeStandardProject';
 import {ConvertPlants} from './base/standardActions/ConvertPlants';
 import {ConvertHeat} from './base/standardActions/ConvertHeat';
 import {BufferGasStandardProject} from './prelude/BufferGasStandardProject';
@@ -393,6 +394,7 @@ export const BASE_CARD_MANIFEST = new ModuleManifest({
     [CardName.ASTEROID_STANDARD_PROJECT]: {Factory: AsteroidStandardProject},
     [CardName.SELL_PATENTS_STANDARD_PROJECT]: {Factory: SellPatentsStandardProject},
     [CardName.BUFFER_GAS_STANDARD_PROJECT]: {Factory: BufferGasStandardProject},
+    [CardName.HOT_COFFEE_STANDARD_PROJECT]: {Factory: HotCoffeeStandardProject},
   },
   standardActions: {
     [CardName.CONVERT_PLANTS]: {Factory: ConvertPlants},
