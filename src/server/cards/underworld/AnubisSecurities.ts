@@ -26,9 +26,9 @@ export class AnubisSecurities extends CorporationCard {
             eb.tr(1, {all}).startEffect.megacredits(2, {all});
           }).br;
           b.text('-X').corruption(1).megacredits(1, {text: '6X'}).asterix().br;
-          b.text('Y').corruption(1, {all}).colon().plainText('PAYS').megacredits(1, {text: 'Y'}).or(Size.TINY).tr(1, {size: Size.TINY}).asterix().br;
+          b.text('Y').corruption(1, {all}).colon().plainText('gain').megacredits(1, {text: 'Y'}).or(Size.TINY).tr(1, {size: Size.TINY}).asterix().br;
           b.plainText('(At the end of the production phase, discard all your corruption and gain 6 M€ for each unit discarded. ' +
-            'Then, each player must pay you 1 M€ per unit of corruption they have. If no one has any, gain 1 TR instead.)').br;
+            'Then, you gain 1 M€ per unit of corruption other players have. If no one has any, gain 1 TR instead.)').br;
         }),
       },
     });
@@ -76,8 +76,8 @@ export class AnubisSecurities extends CorporationCard {
         const corruption = opponent.underworldData.corruption;
         if (corruption > 0) {
           anyCorruptOpponents = true;
-          opponent.stock.steal(Resource.MEGACREDITS, corruption, player, {log: false});
-          player.game.log('${0} was paid ${1} M€ from ${2}', (b) => b.player(player).number(corruption).player(opponent));
+          player.stock.megacredits += corruption;
+          player.game.log('${0} gained ${1} M€ for ${2}\'s corruption', (b) => b.player(player).number(corruption).player(opponent));
         }
       }
       if (!anyCorruptOpponents) {

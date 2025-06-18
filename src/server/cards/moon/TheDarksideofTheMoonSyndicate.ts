@@ -16,6 +16,7 @@ import {all} from '../Options';
 import {Payment} from '../../../common/inputs/Payment';
 
 export class TheDarksideofTheMoonSyndicate extends CorporationCard {
+  // TODO
   constructor() {
     super({
       name: CardName.THE_DARKSIDE_OF_THE_MOON_SYNDICATE,
@@ -34,13 +35,13 @@ export class TheDarksideofTheMoonSyndicate extends CorporationCard {
           b.text('You start with 40 M€ and 2 syndicate fleets on this card.', Size.SMALL, false, false).br;
           b.titanium(1).arrow(Size.SMALL).resource(CardResource.SYNDICATE_FLEET)
             .slash(Size.SMALL)
-            .resource(CardResource.SYNDICATE_FLEET).arrow(Size.SMALL).text('steal', Size.TINY).megacredits(2, {all}).asterix().br;
+            .resource(CardResource.SYNDICATE_FLEET).arrow(Size.SMALL).megacredits(2).asterix().br;
           b.text('Action: Spend 1 titanium to add 1 syndicate fleet on this card OR ' +
-                'remove 1 syndicate fleet from this card to steal 2M€ from every opponent.', Size.TINY, false, false).br;
-          b.effect('When you place a tile on The Moon, steal 2 M€ from opponents for each of their tiles next to yours.', (eb) => {
+                'remove 1 syndicate fleet from this card to gain 2M€ for each opponent.', Size.TINY, false, false).br;
+          b.effect('When you place a tile on The Moon, gain 2 M€ for each of your opponent\'s tiles next to yours.', (eb) => {
             eb.emptyTile('normal', {size: Size.SMALL, secondaryTag: Tag.MOON})
               .startEffect
-              .text('STEAL').megacredits(2, {all}).slash().emptyTile('normal', {size: Size.SMALL}).emptyTile('normal', {size: Size.SMALL, all});
+              .megacredits(2).slash().emptyTile('normal', {size: Size.SMALL}).emptyTile('normal', {size: Size.SMALL, all});
           });
         }),
       },
@@ -63,14 +64,9 @@ export class TheDarksideofTheMoonSyndicate extends CorporationCard {
     if (this.resourceCount > 0) {
       orOptions.options.push(new SelectOption('Remove 1 syndicate fleet from this card to steal 2M€ from every opponent.', 'Remove syndicate fleet').andThen(() => {
         player.removeResourceFrom(this);
-        for (const target of player.getOpponents()) {
-          target.maybeBlockAttack(player, (proceed) => {
-            if (proceed) {
-              target.stock.steal(Resource.MEGACREDITS, 2, player);
-            }
-            return undefined;
-          });
-        }
+        player.getOpponents().forEach(() => {
+          player.stock.megacredits += 2;
+        });
         return undefined;
       }));
     }
